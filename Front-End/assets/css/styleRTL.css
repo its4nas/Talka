@@ -1,0 +1,31 @@
+body.rtl
+{
+  direction: rtl;
+  text-align: right;
+}
+
+.rtl .me-auto
+{
+    margin-right: unset!important;
+    margin-left: auto!important;
+}
+.rtl #hero .btn-watch-video
+{
+    margin: 10px 25px 0 0;
+    padding: 10px 40px 8px 0;
+}
+.rtl #hero .btn-watch-video i
+{
+    left: auto;
+    right: 0;
+}
+.rtl .about .content ul i
+{
+    left: auto;
+    right: 0;
+}
+.rtl .about .content ul li
+{
+    padding-left: 0;
+    padding-right: 28px;
+}
