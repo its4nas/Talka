@@ -847,6 +847,10 @@ section {
 
 # Contact
 --------------------------------------------------------------*/
+.contact
+{
+    background-color: #f3f5fa;
+}
 .contact .info {
   border-top: 3px solid #e49d47;
   border-bottom: 3px solid #e49d47;
