@@ -29,3 +29,7 @@ Route::resource('users', UserController::class);
 Route::resource('offers', OfferController::class);
 
 Route::resource('orders', OrderController::class);
+
+Route::get('profile', function () {
+    return view('Home.profile');
+});
