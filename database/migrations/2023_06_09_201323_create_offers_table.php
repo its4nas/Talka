@@ -17,8 +17,8 @@ class CreateOffersTable extends Migration
             $table->id('offer_id');
             $table->unsignedBigInteger('restaurant_id');
             $table->foreign('restaurant_id')->references('restaurant_id')->on('restaurants')->onDelete('cascade');
-            $table->string('offer_name');
-            $table->integer('price');
+            $table->string('offer_name')->nullable(false);
+            $table->integer('price')->nullable(false);
             $table->text('offer_photo');
             $table->unsignedBigInteger('type_id');
             $table->foreign('type_id')->references('type_id')->on('food_type')->onDelete('cascade');

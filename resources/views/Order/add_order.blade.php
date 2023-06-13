@@ -9,7 +9,7 @@
             <div class="card m-b-30">
                 <div class="card-body">
 
-                    <h2 class="mt-0 header-title">إضافة عرض جديد</h2>
+                    <h2 class="mt-0 header-title">إضافة طلب جديد</h2>
                     <br>
 
                     <div class="form-group row">

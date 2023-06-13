@@ -46,7 +46,7 @@ File: Main scss File
 body {
   background: #f5f5f5;
   margin: 0;
-  font-size: 13px;
+  font-size: 15px;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -629,7 +629,7 @@ dd {
 .header-title {
   margin-bottom: 8px;
   letter-spacing: 0.02em;
-  font-size: 14px;
+  font-size: 15px;
   text-transform: uppercase;
 }
 
@@ -902,7 +902,7 @@ dd {
 
 .notification-list .nav-link {
   padding: 0 15px;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 70px;
   color: #ffffff;
   direction: ltr;
@@ -1126,13 +1126,14 @@ body.fixed-left .side-menu.left {
 }
 
 #sidebar-menu ul ul li.active a {
-  color: #5985ee;
+  color: #e49d47;
 }
 
 #sidebar-menu ul ul a {
   color: rgba(15, 31, 62, 0.8);
   display: block;
   padding: 12px 60px 12px 25px;
+  font-size: 15px;
 }
 
 #sidebar-menu ul ul a:hover {
@@ -1152,7 +1153,7 @@ body.fixed-left .side-menu.left {
   display: block;
   padding: 14px 25px;
   background-color: #ffffff;
-  font-size: 13.5px;
+  font-size: 20px;
 }
 
 #sidebar-menu > ul > li > a:hover {
@@ -1161,11 +1162,11 @@ body.fixed-left .side-menu.left {
 }
 
 #sidebar-menu > ul > li > a.active {
-  color: #0f1f3e;
+  color: #e49d47;
 }
 
 #sidebar-menu > ul > li > a.active i {
-  color: #0f1f3e;
+  color: #e49d47;
 }
 
 #sidebar-menu > ul > li > a span {
@@ -1256,7 +1257,7 @@ body.fixed-left .side-menu.left {
 }
 
 .page-title-box .page-title {
-  font-size: 16px;
+  font-size: 20px;
   text-transform: uppercase;
 }
 
@@ -1484,7 +1485,7 @@ body.fixed-left .side-menu.left {
 .show > .btn-outline-primary.dropdown-toggle, .btn-outline-primary:hover, .btn-primary.active,
 .btn-primary:active, .show > .btn-primary.dropdown-toggle,
 .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
-  background-color: #4274ec;
+  background-color: #e49d47;
   border: 1px solid #4274ec;
 }
 
@@ -2296,7 +2297,7 @@ label {
 }
 
 .form-control {
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .form-control:focus {

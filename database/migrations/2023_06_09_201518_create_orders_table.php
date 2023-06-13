@@ -19,8 +19,8 @@ class CreateOrdersTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('offer_id');
             $table->foreign('offer_id')->references('offer_id')->on('offers')->onDelete('cascade');
-            $table->string('location');
-            $table->binary('status');
+            $table->string('location')->nullable(false);
+            $table->binary('status')->nullable(false)->default(0);
             $table->timestamps();
         });
     }

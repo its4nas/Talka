@@ -6,32 +6,12 @@
 
 
 <div class="row">
-    <div class="col-xl-3 col-md-6">
-        <div class="card bg-info mini-stat">
-            <div class="p-3 mini-stat-desc">
-                <div class="clearfix">
-                    <h6 class="text-uppercase mt-0 float-left text-white">Number of Jobs</h6>
-                    <h4 class="mb-3 mt-0 float-right" style="text-align:center">3</h4>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <div class="col-xl-12">
         <div class="card">
             <div class="card-body">
                 <h4 class="mt-0 header-title mb-4" >Jobs</h4>
-                 <div>
-                    <div class="col-12 p-0  content-end" style="text-align:end">
-                        <form asp-controller="Admin" asp-action="job_list">
-                            <span class="btn-group">
-                                Categories:
 
-                                <button class="btn btn-warning" name="FilterText" value="cat_id">name</button>
-
-                            </span>
-                        </form>
-                    </div>
-                </div>
                 <br><br>
                 <div class="table-responsive">
                     <table class="table table-hover">

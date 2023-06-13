@@ -10,12 +10,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App Icons -->
-        <link rel="shortcut icon" href="assets/img/talka_logo.jpg">
+        <link rel="shortcut icon" href="{{url('assets/img/talka_logo.jpg')}}">
 
         <!-- App css -->
-        <link href="assets/dashboard_assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/dashboard_assets/css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="assets/dashboard_assets/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="{{url('assets/dashboard_assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{url('assets/dashboard_assets/css/icons.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{url('assets/dashboard_assets/css/style.css')}}" rel="stylesheet" type="text/css" />
 
     </head>
 
@@ -48,28 +48,60 @@
                 <div class="left-side-logo d-block d-lg-none">
                     <div class="text-center">
 
-                        <a href="index.html" class="logo"><img src="assets/dashboard_assets/images/logo_dark.png" height="20" alt="logo"></a>
+                        <a href="#" class="logo"><img src="{{asset('assets/dashboard_assets/images/logo_dark.png')}}" height="20" alt="logo"></a>
                     </div>
                 </div>
 
-                <div class="sidebar-inner slimscrollleft">
+                <div class="sidebar-inner">
 
                     <div id="sidebar-menu">
                         <ul>
                             <li class="menu-title">الرئيسية</li>
 
                             <li>
-                                <a href="{{route('users.index')}}" class="waves-effect">
+                                <a href="{{url('/dashboard')}}" class="waves-effect">
                                     <i class="dripicons-home"></i>
                                     <span> لوحة التحكم <span class="badge badge-talka badge-pill float-right">3</span></span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="{{route('users.create')}}" class="waves-effect">
-                                    <i class="dripicons-home"></i>
-                                    <span> إضافة مستخدم <span class="badge badge-talka badge-pill float-right">3</span></span>
+                                <a href="{{url('/messages')}}" class="waves-effect">
+                                    <i class="ion ion-md-mail-unread"></i>
+                                    <span> الشكاوي والرسائل <span class="badge badge-talka badge-pill float-right">3</span></span>
                                 </a>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="ion ion-md-person"></i> <span> المستخدمون </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="{{route('users.index')}}">عرض كل المستخدمين</a></li>
+                                    <li><a href="{{route('users.create')}}">إضافة مستخدم جديد</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="ion ion-md-pizza"></i> <span> العروض </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="{{route('offers.index')}}">عرض كل العروض</a></li>
+                                    <li><a href="{{route('offers.create')}}">إضافة عرض جديد</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="ion ion-md-cafe"></i> <span> المطاعم </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="{{route('restaurants.index')}}">عرض كل المطاعم</a></li>
+                                    <li><a href="{{route('restaurants.create')}}">إضافة مطعم جديد</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="ion ion-md-basket"></i> <span> الطلبات </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="{{route('orders.index')}}">عرض كل الطلبات</a></li>
+                                    <li><a href="{{route('orders.create')}}">إضافة طلب جديد</a></li>
+                                </ul>
                             </li>
 
                         </ul>
@@ -90,7 +122,7 @@
 
                         <div class="topbar-left	d-none d-lg-block">
                             <div class="text-center">
-                                <a href="index.html" class="logo"><img src="assets/dashboard_assets/images/logo.png" height="22" alt="logo"></a>
+                                <a href="{{url('/dashboard')}}" class="logo"><img src="{{url('assets/dashboard_assets/images/logo.png')}}" height="22" alt="logo"></a>
                             </div>
                         </div>
 
@@ -171,7 +203,7 @@
                                 <li class="list-inline-item dropdown notification-list nav-user">
                                     <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button"
                                     aria-haspopup="false" aria-expanded="false">
-                                        <img src="assets/dashboard_assets/images/users/avatar-6.jpg" alt="user" class="rounded-circle">
+                                        <img src="{{url('assets/dashboard_assets/images/users/avatar-6.jpg')}}" alt="user" class="rounded-circle">
                                         <span class="d-none d-md-inline-block ml-lg-2" style="color: #e49d47;">أنس الريمي<i class="mdi mdi-chevron-down"></i> </span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
@@ -204,7 +236,7 @@
                                     </div>
                                 </li>
                                 <li class="list-inline-item notification-list d-none d-sm-inline-block">
-                                    <a href="#" class="nav-link waves-effect" >
+                                    <a href="{{url('/')}}" class="nav-link waves-effect" >
                                         الرئيسية
                                     </a>
                                 </li>
@@ -233,23 +265,23 @@
 
 
         <!-- jQuery  -->
-        <script src="assets/dashboard_assets/js/jquery.min.js"></script>
-        <script src="assets/dashboard_assets/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/dashboard_assets/js/modernizr.min.js"></script>
-        <script src="assets/dashboard_assets/js/detect.js"></script>
-        <script src="assets/dashboard_assets/js/fastclick.js"></script>
-        <script src="assets/dashboard_assets/js/jquery.slimscroll.js"></script>
-        <script src="assets/dashboard_assets/js/jquery.blockUI.js"></script>
-        <script src="assets/dashboard_assets/js/waves.js"></script>
-        <script src="assets/dashboard_assets/js/jquery.nicescroll.js"></script>
-        <script src="assets/dashboard_assets/js/jquery.scrollTo.min.js"></script>
+        <script src="{{url('assets/dashboard_assets/js/jquery.min.js')}}"></script>
+        <script src="{{url('assets/dashboard_assets/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{url('assets/dashboard_assets/js/modernizr.min.js')}}"></script>
+        <script src="{{url('assets/dashboard_assets/js/detect.js')}}"></script>
+        <script src="{{url('assets/dashboard_assets/js/fastclick.js')}}"></script>
+        <script src="{{url('assets/dashboard_assets/js/jquery.slimscroll.js')}}"></script>
+        <script src="{{url('assets/dashboard_assets/js/jquery.blockUI.js')}}"></script>
+        <script src="{{url('assets/dashboard_assets/js/waves.js')}}"></script>
+        <script src="{{url('assets/dashboard_assets/js/jquery.nicescroll.js')}}"></script>
+        <script src="{{url('assets/dashboard_assets/js/jquery.scrollTo.min.js')}}"></script>
 
 
         <!-- dashboard js -->
-        <script src="assets/dashboard_assets/pages/dashboard.int.js"></script>
+        <script src="{{url('assets/dashboard_assets/pages/dashboard.int.js')}}"></script>
 
         <!-- App js -->
-        <script src="assets/dashboard_assets/js/app.js"></script>
+        <script src="{{url('assets/dashboard_assets/js/app.js')}}"></script>
 
     </body>
 </html>

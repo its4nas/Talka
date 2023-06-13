@@ -105,6 +105,29 @@
         <!-- end row -->
 
         <div class="row">
+            <div class="col-xl-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="mt-0 header-title">Sales Report</h4>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div id="morris-line-example" class="morris-chart" style="height: 300px"></div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div>
+                                    <h5 class="font-14 mb-5">Yearly Sales Report</h5>
+
+                                    <div>
+                                        <h5 class="mb-3">2018 : $19523</h5>
+                                        <p class="text-muted mb-4">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis atque quos dolores et</p>
+                                        <a href="#" class="btn btn-primary btn-sm">Read more <i class="mdi mdi-chevron-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-xl-4">
                 <div class="card">
                     <div class="card-body">

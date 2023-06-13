@@ -378,7 +378,8 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="{{route('messages.store')}}" method="post" role="form" class="php-email-form">
+                @csrf
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">الأسم:</label>
@@ -389,10 +390,10 @@
                   <input type="email" class="form-control" name="email" id="email" required>
                 </div>
               </div>
-              <div class="form-group">
+              {{-- <div class="form-group">
                 <label for="name">الموضوع:</label>
                 <input type="text" class="form-control" name="subject" id="subject" required>
-              </div>
+              </div> --}}
               <div class="form-group">
                 <label for="name">الرسالة:</label>
                 <textarea class="form-control" name="message" rows="10" required></textarea>
