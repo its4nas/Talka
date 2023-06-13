@@ -59,9 +59,16 @@
                             <li class="menu-title">الرئيسية</li>
 
                             <li>
-                                <a href="index.html" class="waves-effect">
+                                <a href="{{route('users.index')}}" class="waves-effect">
                                     <i class="dripicons-home"></i>
                                     <span> لوحة التحكم <span class="badge badge-talka badge-pill float-right">3</span></span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{route('users.create')}}" class="waves-effect">
+                                    <i class="dripicons-home"></i>
+                                    <span> إضافة مستخدم <span class="badge badge-talka badge-pill float-right">3</span></span>
                                 </a>
                             </li>
 

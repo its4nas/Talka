@@ -14,18 +14,18 @@ class CreateOffersTable extends Migration
     public function up()
     {
         Schema::create('offers', function (Blueprint $table) {
-            $table->increments('offer_id');
-            $table->integer('restaurant_id');
+            $table->id('offer_id');
+            $table->unsignedBigInteger('restaurant_id');
+            $table->foreign('restaurant_id')->references('restaurant_id')->on('restaurants')->onDelete('cascade');
             $table->string('offer_name');
             $table->integer('price');
             $table->text('offer_photo');
-            $table->integer('type_id');
+            $table->unsignedBigInteger('type_id');
+            $table->foreign('type_id')->references('type_id')->on('food_type')->onDelete('cascade');
             $table->timestamps();
 
-            $table->foreign('restaurant_id')->refrences('restaurant_id')->on('restaurants')
-            ->onDelete('casecade');
-            $table->foreign('type_id')->refrences('type_id')->on('food_type')
-            ->onDelete('casecade');
+
+
         });
     }
 

@@ -13,24 +13,24 @@
             user Name:
         </dt>
         <dd class = "col-sm-10">
-            @Model.user_name
+            user_name
         </dd>
         <dt class = "col-sm-2">
             user Email:
         </dt>
         <dd class = "col-sm-10">
-            @Model.user_email
+            user_email
         </dd>
         <dt class = "col-sm-2">
             user Phone:
         </dt>
         <dd class = "col-sm-10">
-            @Model.user_phone
+            user_phone
         </dd>
     </dl>
 
     <form asp-action="DeleteUser" asp-controller="Admin" method="post">
-        <input type="hidden" asp-for="@Model.user_id" />
+        <input type="hidden" asp-for="user_id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="user_list" asp-controller="Admin" style="color: #ffc600">Back to List</a>
     </form>

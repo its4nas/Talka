@@ -14,7 +14,7 @@ class CreateFoodTypeTable extends Migration
     public function up()
     {
         Schema::create('food_type', function (Blueprint $table) {
-            $table->increments('type_id');
+            $table->id('type_id');
             $table->string('type_name');
             $table->timestamps();
         });

@@ -10,4 +10,9 @@ class HomeController extends Controller
     {
         return view('Home.index');
     }
+
+    public function profile($id)
+    {
+        return view('Home.profile');
+    }
 }
