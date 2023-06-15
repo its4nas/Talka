@@ -1,52 +1,76 @@
 <!-- boooooooooooooooooooooooooooooooooooooooooooooooooody -->
 @extends('Dashboard.layout')
 @section('content')
+<div class="container-fluid">
 
-<form method="post" action="add_user">
-    <div class="row">
-        <div class="col-12">
-            <div class="card m-b-30">
-                <div class="card-body">
+    <form method="post" action="{{route('restaurants.update',$restaurant)}}">
+        @csrf
+        @method("PUT")
+        <div class="row">
+            <div class="col-12">
+                <div class="card m-b-30">
+                    <div class="card-body">
 
-                    <h2 class="mt-0 header-title">Edit Restaurant</h2>
-                    <br>
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-sm-2 col-form-label">Restaurant Name</label>
-                        <div class="col-sm-8">
-                            <input class="form-control" type="text" name="user_name">
+                        <h2 class="mt-0 header-title" style="font-size: 25px">إضافة مطعم جديد</h2>
+                        <br>
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-sm-2 col-form-label">إسم المطعم</label>
+                            <div class="col-sm-6">
+                                <input class="form-control @error('restaurant_name') is-invalid @enderror" value="{{old('restaurant_name',$restaurant)}}" type="text" name="restaurant_name">
+                            </div>
+                            @error('restaurant_name')
+                            <div style="color:red" role="alert">
+                                {{$message}}
+                            </div>
+                            @enderror
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="example-tel-input" class="col-sm-2 col-form-label">User Email</label>
-                        <div class="col-sm-8">
-                            <input class="form-control" type="email" name="user_email" >
+                        <div class="form-group row">
+                            <label for="example-tel-input" class="col-sm-2 col-form-label">صورة لشعار المطعم</label>
+                            <div class="col-sm-6">
+                                <input class="form-control @error('restaurant_photo') is-invalid @enderror" type="text" name="restaurant_photo" >
+                            </div>
+                            @error('restaurant_photo')
+                            <div style="color:red" role="alert">
+                                {{$message}}
+                            </div>
+                            @enderror
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="example-number-input" class="col-sm-2 col-form-label">Phone</label>
-                        <div class="col-sm-8">
-                            <input class="form-control" type="Text" name="user_phone" >
+                        <div class="form-group row">
+                            <label for="example-number-input" class="col-sm-2 col-form-label">موقع المطعم</label>
+                            <div class="col-sm-6">
+                                <input class="form-control @error('location') is-invalid @enderror" value="{{old('location',$restaurant)}}" type="Text" name="location" >
+                            </div>
+                            @error('location')
+                            <div style="color:red" role="alert">
+                                {{$message}}
+                            </div>
+                            @enderror
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="example-number-input" class="col-sm-2 col-form-label">location</label>
-                        <div class="col-sm-8">
-                            <input class="form-control" type="Text" name="user_phone" >
+                        <div class="form-group row">
+                            <label for="example-number-input" class="col-sm-2 col-form-label">وصف لموقع المطعم</label>
+                            <div class="col-sm-6">
+                                <input class="form-control @error('description') is-invalid @enderror" value="{{old('description',$restaurant)}}" type="Text" name="description" >
+                            </div>
+                            @error('description')
+                            <div style="color:red" role="alert">
+                                {{$message}}
+                            </div>
+                            @enderror
                         </div>
-                    </div>
-                    <br>
-                    <div class="col-xs-6" >
-                        <div class="submit-holder">
-                            <button type="submit" class="btn btn-primary" name="submit">Edit Restaurant</button>
+                        <br>
+                        <div class="col-xs-6" >
+                            <div class="submit-holder">
+                                <button type="submit" class="btn btn-primary">عدل المطعم</button>
+                            </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
-            </div>
-        </div> <!-- end col -->
-    </div> <!-- end row -->
+            </div> <!-- end col -->
+        </div> <!-- end row -->
 
-</form>
+    </form>
+</div>
 
 @endsection

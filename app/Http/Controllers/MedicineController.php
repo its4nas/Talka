@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
-use App\Http\Requests\StoreOrderRequest;
-use App\Http\Requests\UpdateOrderRequest;
+use App\Models\Medicine;
+use App\Http\Requests\StoreMedicineRequest;
+use App\Http\Requests\UpdateMedicineRequest;
 
-class OrderController extends Controller
+class MedicineController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('Order.orders');
+        //
     }
 
     /**
@@ -21,13 +21,13 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('Order.add_order');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreOrderRequest $request)
+    public function store(StoreMedicineRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Order $order)
+    public function show(Medicine $medicine)
     {
         //
     }
@@ -43,7 +43,7 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Order $order)
+    public function edit(Medicine $medicine)
     {
         //
     }
@@ -51,7 +51,7 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateOrderRequest $request, Order $order)
+    public function update(UpdateMedicineRequest $request, Medicine $medicine)
     {
         //
     }
@@ -59,7 +59,7 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Order $order)
+    public function destroy(Medicine $medicine)
     {
         //
     }

@@ -406,7 +406,6 @@
               <div class="text-center"><button type="submit">إرسال الرسالة</button></div>
             </form>
           </div>
-
         </div>
 
       </div>

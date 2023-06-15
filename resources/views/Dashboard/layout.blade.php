@@ -61,7 +61,7 @@
                             <li>
                                 <a href="{{url('/dashboard')}}" class="waves-effect">
                                     <i class="dripicons-home"></i>
-                                    <span> لوحة التحكم <span class="badge badge-talka badge-pill float-right">3</span></span>
+                                    <span> لوحة التحكم </span>
                                 </a>
                             </li>
 

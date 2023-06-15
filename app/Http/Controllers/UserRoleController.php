@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
-use App\Http\Requests\StoreOrderRequest;
-use App\Http\Requests\UpdateOrderRequest;
+use App\Models\user_role;
+use App\Http\Requests\Storeuser_roleRequest;
+use App\Http\Requests\Updateuser_roleRequest;
 
-class OrderController extends Controller
+class UserRoleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('Order.orders');
+        //
     }
 
     /**
@@ -21,13 +21,13 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('Order.add_order');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreOrderRequest $request)
+    public function store(Storeuser_roleRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Order $order)
+    public function show(user_role $user_role)
     {
         //
     }
@@ -43,7 +43,7 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Order $order)
+    public function edit(user_role $user_role)
     {
         //
     }
@@ -51,7 +51,7 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateOrderRequest $request, Order $order)
+    public function update(Updateuser_roleRequest $request, user_role $user_role)
     {
         //
     }
@@ -59,7 +59,7 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Order $order)
+    public function destroy(user_role $user_role)
     {
         //
     }
