@@ -49,6 +49,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="container">
+                        {!! $restaurants->render() !!}
+                    </div>
                 </div>
 
             </div>

@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name')->nullable(false);
             $table->longText('description')->nullable(false);
             $table->text('medicine_photo');
+            $table->string('location');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }

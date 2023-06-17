@@ -13,7 +13,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::all();
+        $restaurants = Restaurant::paginate(3);
 
         return view('Restaurants.restaurants',compact('restaurants'));
     }
@@ -38,6 +38,7 @@ class RestaurantController extends Controller
             'location'=>$request->location,
             'description'=>$request->description
         ]);
+        if(create)
         toastr()->success('تم إضافة المطعم بنجاح');
         return redirect('/restaurants');
     }
@@ -69,6 +70,7 @@ class RestaurantController extends Controller
             'location'=>$request->location,
             'description'=>$request->description
         ]);
+        if('update')
         toastr()->success('تم تعديل البيانات بنجاح');
         return redirect('/restaurants');
     }
