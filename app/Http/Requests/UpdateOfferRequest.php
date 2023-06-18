@@ -11,7 +11,7 @@ class UpdateOfferRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class UpdateOfferRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'offer_name'=>'required|max:255',
+            'offer_photo'=>'max:5120|image',
+            'price'=>'required|numeric',
+            'restaurant'=>'required',
+            'food_type'=>'required'
         ];
     }
 }

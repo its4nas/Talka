@@ -31,14 +31,15 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
+        $bath=$request->file('restaurant_photo')->store('restaurants');
         // return dd($request->all());
         Restaurant::create([
             'restaurant_name'=>$request->restaurant_name,
-            'restaurant_photo'=>$request->restaurant_photo,
+            'restaurant_photo'=>$bath,
             'location'=>$request->location,
             'description'=>$request->description
         ]);
-        if(create)
+
         toastr()->success('تم إضافة المطعم بنجاح');
         return redirect('/restaurants');
     }
@@ -64,9 +65,15 @@ class RestaurantController extends Controller
      */
     public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
+        $bath = $restaurant->restaurant_photo;
+        if($request->hasFile('restaurant_photo'))
+        {
+            $bath=$request->file('restaurant_photo')->store('restaurants');
+            // storage::delete($restaurant->restaurant_photo);
+        }
         $restaurant->Update([
             'restaurant_name'=>$request->restaurant_name,
-            'restaurant_photo'=>$request->restaurant_photo,
+            'restaurant_photo'=>$bath,
             'location'=>$request->location,
             'description'=>$request->description
         ]);

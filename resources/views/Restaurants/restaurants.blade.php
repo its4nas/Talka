@@ -26,10 +26,15 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $index = 1
+                            @endphp
                             @foreach ( $restaurants as $item)
                                 <tr>
-                                    <th scope="row">{{ $loop->index+1 }} </th>
+                                    {{-- <th scope="row">{{ $index++ }} </th> --}}
+                                    <th scope="row">{{$item->id}}</th>
                                     <td>{{$item->restaurant_name}}</td>
+                                    <td><img src="{{url('storage/'.$item->restaurant_photo)}}" width="100"></td>
                                     <td>{{$item->location}}</td>
                                     <td>{{$item->description}}</td>
                                     <td>{{$item->created_at}}</td>

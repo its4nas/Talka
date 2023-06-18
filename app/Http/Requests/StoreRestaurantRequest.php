@@ -23,7 +23,7 @@ class StoreRestaurantRequest extends FormRequest
     {
         return [
             'restaurant_name'=>'required|unique:restaurants',
-            'restaurant_photo'=>'required',
+            'restaurant_photo'=>'required|image|max:5120',
             'location'=>'required',
             'description'=>'required'
         ];

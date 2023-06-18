@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
 
-    <form method="post" action="{{route('restaurants.update',$restaurant)}}">
+    <form method="post" action="{{route('restaurants.update',$restaurant)}}" enctype="multipart/form-data">
         @csrf
         @method("PUT")
         <div class="row">
@@ -28,7 +28,8 @@
                         <div class="form-group row">
                             <label for="example-tel-input" class="col-sm-2 col-form-label">صورة لشعار المطعم</label>
                             <div class="col-sm-6">
-                                <input class="form-control @error('restaurant_photo') is-invalid @enderror" type="text" name="restaurant_photo" >
+                                <img src="{{url('storage/'.$restaurant->restaurant_photo)}}" width="100">
+                                <input class="form-control @error('restaurant_photo') is-invalid @enderror" type="file" name="restaurant_photo" >
                             </div>
                             @error('restaurant_photo')
                             <div style="color:red" role="alert">

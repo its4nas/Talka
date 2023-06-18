@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Offer;
+use App\Models\Restaurant;
+use App\Models\food_type;
 use App\Http\Requests\StoreOfferRequest;
 use App\Http\Requests\UpdateOfferRequest;
 
@@ -13,7 +15,8 @@ class OfferController extends Controller
      */
     public function index()
     {
-        return view('Offer.offers');
+        $offers = Offer::paginate(3);
+        return view('Offer.offers',compact('offers'));
     }
 
     /**
@@ -21,7 +24,11 @@ class OfferController extends Controller
      */
     public function create()
     {
-        return view('offer.add_offer');
+        $restaurants = Restaurant::all();
+        $food_types = food_type::all();
+        return view('offer.add_offer')
+        ->with('restaurants',$restaurants)
+        ->with('food_types',$food_types);
     }
 
     /**
@@ -29,7 +36,17 @@ class OfferController extends Controller
      */
     public function store(StoreOfferRequest $request)
     {
-        //
+        $bath=$request->file('offer_photo')->store('offers');
+        Offer::create([
+            'offer_name'=>$request->offer_name,
+            'offer_photo'=>$bath,
+            'restaurant_id'=>$request->restaurant,
+            'type_id'=>$request->food_type,
+            'price'=>$request->price
+        ]);
+
+        toastr()->success('تم إضافة العرض بنجاح');
+        return redirect('/offers');
     }
 
     /**

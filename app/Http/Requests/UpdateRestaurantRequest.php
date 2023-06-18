@@ -22,8 +22,8 @@ class UpdateRestaurantRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'restaurant_name'=>['required'],
-            'restaurant_photo'=>'required',
+            'restaurant_name'=>'required|unique:restaurants',
+            'restaurant_photo'=>'image|max:5120',
             'location'=>'required',
             'description'=>'required'
         ];
