@@ -47,38 +47,37 @@
           <li><a class="nav-link scrollto" href="#about">من نحن</a></li>
           <li><a class="nav-link scrollto" href="#services">خدماتنا</a></li>
           <li><a class="nav-link   scrollto" href="#portfolio">Portfolio</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+          <li><a class="nav-link scrollto" href="#contact">تواصل بنا</a></li>
+
+          <li class="dropdown"><a href="#"><span>{{Auth::user()->name}}</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+                @if (Route::has('login'))
+                @auth
+              <li><a href="{{route('profile.edit')}}">الملف الشخصي<i class="dripicons-user"></i></a></li>
+              <li><a href="#">الاعدادات</a></li>
+              <li><form method="POST" action="{{ route('logout') }}">
+                @csrf
+
+                <a class="nav-link scrollto" href="route('logout')"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                    تسجيل خروج
+            </a>
+            </form></li>
+            @else
+            <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                    @endif
+                @endauth
+                @endif
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#contact">تواصل بنا</a></li>
-          <li>@if (Route::has('login'))
+          {{-- <li>@if (Route::has('login'))
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                 @auth
                     <a class="nav-link scrollto" href="{{ url('/dashboard') }}" >Dashboard</a>
-                                            <!-- Authentication -->
-                                            <form method="POST" action="{{ route('logout') }}">
-                                                @csrf
-
-                                                <a class="nav-link scrollto" href="route('logout')"
-                                                        onclick="event.preventDefault();
-                                                                    this.closest('form').submit();">
-                                                    {{ __('Log Out') }}
-                                            </a>
-                                            </form>
                 @else
                     <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
 
@@ -87,7 +86,7 @@
                     @endif
                 @endauth
             </div>
-        @endif</li>
+        @endif</li> --}}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

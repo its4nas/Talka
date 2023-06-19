@@ -1,47 +1,135 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+        <title>Login</title>
+        <meta content="Admin Dashboard" name="description" />
+        <meta content="ThemeDesign" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        <link href="{{url('assets/dashboard_assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{url('assets/dashboard_assets/css/icons.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{url('assets/dashboard_assets/css/style.css')}}" rel="stylesheet" type="text/css">
+
+    </head>
+
+
+    <body class="fixed-left">
+
+        <!-- Begin page -->
+        <x-auth-session-status class="mb-4" :status="session('status')" />
+
+        <div class="account-pages">
+
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 offset-lg-1">
+                        <div class="text-left">
+                            <div>
+                                <a href="index.html" class="logo logo-admin"><img src="{{url('assets/images/logo_dark.png')}}" height="28" alt="logo"></a>
+                            </div>
+                            <h5 class="font-14 text-muted mb-4">Responsive Bootstrap 4 Admin Dashboard</h5>
+                            <p class="text-muted mb-4">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+
+                            <h5 class="font-14 text-muted mb-4">Terms :</h5>
+                            <div>
+                                <p><i class="mdi mdi-arrow-right text-primary mr-2"></i>At solmen va esser necessi far uniform paroles.</p>
+                                <p><i class="mdi mdi-arrow-right text-primary mr-2"></i>Donec sapien ut libero venenatis faucibus.</p>
+                                <p><i class="mdi mdi-arrow-right text-primary mr-2"></i>Nemo enim ipsam voluptatem quia voluptas sit .</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="card mb-0">
+                            <div class="card-body">
+                                <div class="p-2">
+                                    <h4 class="text-muted float-right font-18 mt-4">تسجيل الدخول</h4>
+                                    <div>
+                                        <a href="#" class="logo logo-admin"><img src="{{url('assets/images/logo_dark.png')}}" height="28" alt="logo"></a>
+                                    </div>
+                                </div>
+
+                                <div class="p-2">
+                                    <form class="form-horizontal m-t-20" method="POST" action="{{ route('login') }}">
+                                        @csrf
+                                        <div class="form-group row">
+                                            <div class="col-12">
+                                                <input class="form-control" type="email" name="email" id="email" required="" placeholder="البريد الالكتروني" value="{{old('email')}}">
+                                            </div>
+                                        </div>
+                                        @error('email')
+                                            <div style="color:red" role="alert">
+                                                {{$message}}
+                                            </div>
+                                        @enderror
+
+                                        <div class="form-group row">
+                                            <div class="col-12">
+                                                <input class="form-control" name="password" id="password" type="password" required="" placeholder="كلمة السر">
+                                            </div>
+                                        </div>
+                                        @error('password')
+                                            <div style="color:red" role="alert">
+                                                {{$message}}
+                                            </div>
+                                        @enderror
+
+                                        <div class="form-group row">
+                                            <div class="col-12">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="remember_me">
+                                                    <label class="custom-control-label" for="remember_me">تذكرني</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group text-center row m-t-20">
+                                            <div class="col-12">
+                                                <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">تسجيل الدخول</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group m-t-10 mb-0 row">
+                                            @if (Route::has('password.request'))
+                                                <div class="col-sm-7 m-t-20">
+                                                    <a class="text-muted" href="{{ route('password.request') }}">
+                                                        <i class="mdi mdi-lock"></i> نسيت كلمة السر؟
+                                                    </a>
+                                                </div>
+                                            @endif
+                                            <div class="col-sm-5 m-t-20">
+                                                <a href="{{route('register')}}" class="text-muted"><i class="mdi mdi-account-circle"></i> إنشاء حساب جديد</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+        <!-- jQuery  -->
+        <script src="{{url('assets/dashboard_assets/js/jquery.min.js')}}"></script>
+        <script src="{{url('assets/dashboard_assets/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{url('assets/dashboard_assets/js/modernizr.min.js')}}"></script>
+        <script src="{{url('assets/dashboard_assets/js/detect.js')}}"></script>
+        <script src="{{url('assets/dashboard_assets/js/fastclick.js')}}"></script>
+        <script src="{{url('assets/dashboard_assets/js/jquery.slimscroll.js')}}"></script>
+        <script src="{{url('assets/dashboard_assets/js/jquery.blockUI.js')}}"></script>
+        <script src="{{url('assets/dashboard_assets/js/waves.js')}}"></script>
+        <script src="{{url('assets/dashboard_assets/js/jquery.nicescroll.js')}}"></script>
+        <script src="{{url('assets/dashboard_assets/js/jquery.scrollTo.min.js')}}"></script>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+        <!-- App js -->
+        <script src="{{url('assets/dashboard_assets/js/app.js')}}"></script>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ml-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </body>
+</html>
