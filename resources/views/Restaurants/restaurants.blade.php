@@ -18,6 +18,7 @@
                            <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">إسم المطعم</th>
+                                <th scope="col">صورة المطعم</th>
                                 <th scope="col">الموقع</th>
                                 <th scope="col">الوصف</th>
                                 <th scope="col">تاريخ انشاء الحقل</th>
