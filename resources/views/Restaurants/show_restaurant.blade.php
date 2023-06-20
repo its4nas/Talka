@@ -20,6 +20,9 @@
                                 <h4> وصف لمكان المطعم:  {{$restaurant->description}}</h4>
                                 <br>
                                 <h4> تاريخ انشاء حقل المطعم:  {{$restaurant->created_at}}</h4>
+                                <br>
+                                <h4> صورة لشعار المطعم: </h4>
+                                <img src="{{url('storage/'.$restaurant->restaurant_photo)}}" width="200">
                             </div>
                             <form action="{{route('restaurants.destroy',$restaurant)}}" method="post">
                                 @csrf

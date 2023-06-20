@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,7 @@ Route::get('/', function () {
     return view('Home.index');
 });
 
+
 Route::get('dashboard',[App\Http\Controllers\AdminController::class,'index']);
 // Route::get('messages',[App\Http\Controllers\AdminController::class,'messages']);
 
@@ -27,7 +29,19 @@ Route::resource('users', App\Http\Controllers\UserController::class);
 
 Route::resource('offers', App\Http\Controllers\OfferController::class);
 
+
 Route::resource('orders', App\Http\Controllers\OrderController::class);
+Route::get('/', function () {
+    return view('Home.index');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
 
 Route::resource('restaurants', App\Http\Controllers\RestaurantController::class);
 

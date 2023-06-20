@@ -204,13 +204,17 @@
                                     <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button"
                                     aria-haspopup="false" aria-expanded="false">
                                         <img src="{{url('assets/dashboard_assets/images/users/avatar-6.jpg')}}" alt="user" class="rounded-circle">
-                                        <span class="d-none d-md-inline-block ml-lg-2" style="color: #e49d47;">أنس الريمي<i class="mdi mdi-chevron-down"></i> </span>
+                                        <span class="d-none d-md-inline-block ml-lg-2" style="color: #e49d47;">{{ Auth::user()->name }}<i class="mdi mdi-chevron-down"></i> </span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
-                                        <a class="dropdown-item" href="#"><i class="dripicons-user text-muted"></i> الملف الشخصي</a>
+                                        <a class="dropdown-item" href="{{route('profile.edit')}}"><i class="dripicons-user text-muted"></i> الملف الشخصي</a>
                                         <a class="dropdown-item" href="#"><span class="badge badge-success float-right m-t-5">5</span><i class="dripicons-gear text-muted"></i> الإعدادات</a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#"><i class="dripicons-exit text-muted"></i> تسجيل الخروج</a>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault();
+                                            this.closest('form').submit();"><i class="dripicons-exit text-muted"></i> {{ __('Log Out') }}</a>
+                                        </form>
                                     </div>
                                 </li>
 
