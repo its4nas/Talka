@@ -46,3 +46,5 @@ require __DIR__.'/auth.php';
 Route::resource('restaurants', App\Http\Controllers\RestaurantController::class);
 
 Route::resource('messages',App\Http\Controllers\MessageController::class);
+
+Route::resource('roles', App\Http\Controllers\UserRoleController::class);

@@ -9,7 +9,7 @@
         <meta content="ThemeDesign" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="{{url('assets/images/favicon.ico')}}">
 
         <link href="{{url('assets/dashboard_assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets/dashboard_assets/css/icons.css')}}" rel="stylesheet" type="text/css">
