@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\user_role;
 use App\Http\Requests\Storeuser_roleRequest;
 use App\Http\Requests\Updateuser_roleRequest;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class UserRoleController extends Controller
 {
@@ -13,7 +15,8 @@ class UserRoleController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Role::paginate(5);
+        return view('Roles.index',compact('roles'));
     }
 
     /**
@@ -21,7 +24,10 @@ class UserRoleController extends Controller
      */
     public function create()
     {
-        //
+        $groups = Permission::select('group')->distinct()->get();
+        // $permissions =Permission::groupBy('group')->get();
+
+        return view('roles.create', compact('groups'));
     }
 
     /**
@@ -29,7 +35,17 @@ class UserRoleController extends Controller
      */
     public function store(Storeuser_roleRequest $request)
     {
-        //
+
+        $request->validate([
+            'name' => "required|unique:roles,name,".$request->id,
+        ]);
+        $role = Role::UpdateOrCreate(
+            ["id"=>$request->id],
+            ['name' => $request->name]
+    );
+        $role->syncPermissions($request->permissions);
+        toastr()->success("تمت العملية بنجاح");
+        return redirect()->route('roles.index');
     }
 
     /**
@@ -61,6 +77,8 @@ class UserRoleController extends Controller
      */
     public function destroy(user_role $user_role)
     {
-        //
+        $user_role->delete();
+        toastr()->success("تمت العملية بنجاح");
+        return redirect()->route('roles.index');
     }
 }
