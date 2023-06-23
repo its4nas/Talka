@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\API\AuthUserController;
+use App\Http\Controllers\API\OfferController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,4 +32,6 @@ Route::post('/login', [AuthUserController::class, 'login'])
 Route::post('/logout', [AuthUserController::class, 'destroy'])
     ->middleware('auth')
     ->name('logout');
+
+Route::resource('offers', App\Http\Controllers\API\OfferController::class);
 
