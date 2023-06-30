@@ -11,7 +11,7 @@ class Updateuser_roleRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**

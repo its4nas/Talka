@@ -51,7 +51,7 @@ class UserRoleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(user_role $user_role)
+    public function show(Role $role)
     {
         //
     }
@@ -59,7 +59,7 @@ class UserRoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(user_role $user_role)
+    public function edit(Role $role)
     {
         //
     }
@@ -67,7 +67,7 @@ class UserRoleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Updateuser_roleRequest $request, user_role $user_role)
+    public function update(Updateuser_roleRequest $request, Role $role)
     {
         //
     }
@@ -75,9 +75,9 @@ class UserRoleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(user_role $user_role)
+    public function destroy(Role $role)
     {
-        $user_role->delete();
+        $role->delete();
         toastr()->success("تمت العملية بنجاح");
         return redirect()->route('roles.index');
     }
