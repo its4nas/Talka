@@ -14,26 +14,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Home.index');
-});
+// Route::get('/', function () {
+//     return view('Home.index');
+// });
 
 
-Route::get('dashboard',[App\Http\Controllers\AdminController::class,'index']);
+Route::get('dashboard',[App\Http\Controllers\AdminController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
 // Route::get('messages',[App\Http\Controllers\AdminController::class,'messages']);
 
 //Route::get('users/create',[App\Http\Controllers\UserController::class,'create']);
 // Route::get('users/edit_user/{id}',[App\Http\Controllers\UserController::class,'edit']);
 
-Route::resource('users', App\Http\Controllers\UserController::class);
+Route::resource('users', App\Http\Controllers\UserController::class)->middleware(['auth', 'verified']);
 
-Route::resource('offers', App\Http\Controllers\OfferController::class);
+Route::resource('offers', App\Http\Controllers\OfferController::class)->middleware(['auth', 'verified']);
 
 
-Route::resource('orders', App\Http\Controllers\OrderController::class);
+Route::resource('orders', App\Http\Controllers\OrderController::class)->middleware(['auth', 'verified']);
 Route::get('/', function () {
     return view('Home.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

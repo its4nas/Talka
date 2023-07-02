@@ -46,7 +46,7 @@
 
                                         <div class="form-group row">
                                             <div class="col-12">
-                                                <input class="form-control" type="email" name="email" id="email" required="" placeholder="البريد الالكتروني" value="{{old('email',$request->email)}}">
+                                                <input class="form-control" type="email" name="email" readonly id="email" required="" placeholder="البريد الالكتروني" value="{{old('email',$request->email)}}">
                                             </div>
                                         </div>
                                         @error('email')
@@ -57,19 +57,7 @@
 
                                         <div class="form-group row">
                                             <div class="col-12">
-                                                <input class="form-control" type="text" name="phone" id="phone" required="" placeholder="رقم الهاتف" value="{{old('phone')}}">
-                                            </div>
-                                        </div>
-                                        @error('phone')
-                                            <div style="color:red" role="alert">
-                                                {{$message}}
-                                            </div>
-                                        @enderror
-
-
-                                        <div class="form-group row">
-                                            <div class="col-12">
-                                                <input class="form-control" name="password" id="password" type="password" required="" placeholder="كلمة السر">
+                                                <input class="form-control" name="password" id="password" type="password" required="" placeholder="كلمة السر الجديدة">
                                             </div>
                                         </div>
                                         @error('password')
@@ -80,7 +68,7 @@
 
                                         <div class="form-group row">
                                             <div class="col-12">
-                                                <input class="form-control" name="password_confirmation" id="password_confirmation" type="password" required="" placeholder="تأكيد كلمة السر">
+                                                <input class="form-control" name="password_confirmation" id="password_confirmation" type="password" required="" placeholder="تأكيد كلمة السر الجديدة">
                                             </div>
                                         </div>
                                         @error('password_confirmation')
