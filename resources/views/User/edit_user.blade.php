@@ -40,7 +40,7 @@
                         <div class="form-group row">
                             <label for="example-number-input" class="col-sm-2 col-form-label">رقم الهاتف</label>
                             <div class="col-sm-6">
-                                <input class="form-control @error('phone') is-invalid @enderror" value="{{old('phone',$user)}}" type="Text" name="description" >
+                                <input class="form-control @error('phone') is-invalid @enderror" value="{{old('phone',$user)}}" type="Text" name="phone" >
                             </div>
                             @error('phone')
                             <div style="color:red" role="alert">

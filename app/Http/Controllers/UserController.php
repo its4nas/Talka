@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
-use App\Http\Request\ProfileUpdateRequest;
-
+use App\Http\Requests\UpdateProfileRequest;
 
 class UserController extends Controller
 {
@@ -73,14 +72,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProfileUpdateRequest $request, User $user)
+    public function update(UpdateProfileRequest $request, User $user)
     {
         $user->Update([
             'name'=>$request->name,
             'email'=>$request->email,
             'phone'=>$request->phone,
-            'role'=>$request->role
         ]);
+
 
         toastr()->success('تم تعديل البيانات بنجاح');
         return redirect('/users');
