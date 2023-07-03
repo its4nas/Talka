@@ -77,7 +77,7 @@ class RestaurantController extends Controller
             'location'=>$request->location,
             'description'=>$request->description
         ]);
-        if('update')
+        
         toastr()->success('تم تعديل البيانات بنجاح');
         return redirect('/restaurants');
     }

@@ -2,73 +2,76 @@
 @extends('Dashboard.layout')
 @section('content')
 
-<form method="post" action="add_user">
-    <div class="row">
-        <div class="col-12">
-            <div class="card m-b-30">
-                <div class="card-body">
+<div class="container-fluid">
 
-                    <h2 class="mt-0 header-title">Add New User</h2>
-                    <br>
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-sm-2 col-form-label">User Name</label>
-                        <div class="col-sm-8">
-                            <input class="form-control" type="text" name="user_name">
-                        </div>
-                    </div>
+    <form method="post" >
+        @csrf
+        <div class="row">
+            <div class="col-12">
+                <div class="card m-b-30">
+                    <div class="card-body">
 
-                    <div class="form-group row">
-                        <label for="example-tel-input" class="col-sm-2 col-form-label">User Email</label>
-                        <div class="col-sm-8">
-                            <input class="form-control" type="email" name="user_email" >
+                        <h2 class="mt-0 header-title" style="font-size: 25px">إضافة مستخدم جديد</h2>
+                        <br>
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-sm-2 col-form-label">إسم المستخدم</label>
+                            <div class="col-sm-6">
+                                <input class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}" type="text" name="name">
+                            </div>
+                            @error('name')
+                            <div style="color:red" role="alert">
+                                {{$message}}
+                            </div>
+                            @enderror
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="example-number-input" class="col-sm-2 col-form-label">Phone</label>
-                        <div class="col-sm-8">
-                            <input class="form-control" type="Text" name="user_phone" >
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="example-number-input" class="col-sm-2 col-form-label">Password</label>
-                        <div class="col-sm-8">
-                            <input class="form-control" type="Text" name="user_password">
-                        </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Gender</label>
-                        <div class="col-sm-8">
-                            <select class="form-control" name="gender">
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </select>
+                        <div class="form-group row">
+                            <label for="example-number-input" class="col-sm-2 col-form-label">البريد الالكتروني</label>
+                            <div class="col-sm-6">
+                                <input class="form-control @error('email') is-invalid @enderror" value="{{old('email')}}" type="email" name="email" >
+                            </div>
+                            @error('email')
+                            <div style="color:red" role="alert">
+                                {{$message}}
+                            </div>
+                            @enderror
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="example-number-input" class="col-sm-2 col-form-label">Age</label>
-                        <div class="col-sm-8">
-                            <input class="form-control" type="text" name="user_age">
+                        <div class="form-group row">
+                            <label for="example-number-input" class="col-sm-2 col-form-label">رقم الهاتف</label>
+                            <div class="col-sm-6">
+                                <input class="form-control @error('phone') is-invalid @enderror" value="{{old('phone')}}" type="Text" name="description" >
+                            </div>
+                            @error('phone')
+                            <div style="color:red" role="alert">
+                                {{$message}}
+                            </div>
+                            @enderror
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="example-number-input" class="col-sm-2 col-form-label">User Role</label>
-                        <div class="col-sm-8">
-                            <input class="form-control" type="Text" name="user_role">
-                        </div>
-                    </div>
-                    <br>
-                    <div class="col-xs-6" >
-                        <div class="submit-holder">
-                            <button type="submit" class="btn btn-primary" name="submit">Add User</button>
-                        </div>
-                    </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">الصلاحية</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" name="role">
+                                    <option value="">اختر نوع الصلاحية</option>
+                                    @foreach ( $roles as $item)
 
+                                    <option value="{{$item->id}}">{{$item->name}}</option>
+
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-xs-6" >
+                            <div class="submit-holder">
+                                <button type="submit" class="btn btn-primary">أضف مستخدم</button>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
-        </div> <!-- end col -->
-    </div> <!-- end row -->
+            </div> <!-- end col -->
+        </div> <!-- end row -->
 
-</form>
-
+    </form>
+</div>
 @endsection

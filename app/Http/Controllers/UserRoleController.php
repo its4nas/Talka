@@ -59,9 +59,11 @@ class UserRoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Role $role)
+    public function edit(Updateuser_roleRequest $request ,Role $role)
     {
-        //
+        $groups = Permission::select('group')->distinct()->get();
+
+        return view('roles.create', compact('groups', 'role'));
     }
 
     /**

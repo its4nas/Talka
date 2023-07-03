@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Spatie\Permission\Models\Role;
+use App\Http\Request\ProfileUpdateRequest;
+
 
 class UserController extends Controller
 {
@@ -13,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('User.users');
+        $users = User::paginate(3);
+        return view('User.users', compact('users'));
     }
 
     /**
@@ -23,7 +28,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('User.add_user');
+        $roles = Role::all();
+        return view('User.add_user',compact('roles'));
     }
 
     /**
@@ -54,9 +60,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        return view('User.edit_user');
+        $roles = Role::all();
+        return view('User.edit_user',compact('user','roles'));
     }
 
     /**
@@ -66,9 +73,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProfileUpdateRequest $request, User $user)
     {
-        //
+        $user->Update([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'phone'=>$request->phone,
+            'role'=>$request->role
+        ]);
+
+        toastr()->success('تم تعديل البيانات بنجاح');
+        return redirect('/users');
     }
 
     /**
