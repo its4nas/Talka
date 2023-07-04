@@ -27,7 +27,7 @@
                                 <tr>
                                     {{-- <th scope="row">{{ $index++ }} </th> --}}
                                     <th scope="row">{{$item->id}}</th>
-                                    <td>{{$item->type_name}}</td>
+                                    <td>{{$item->food_type_name}}</td>
                                     <td><img src="{{url('storage/'.$item->food_type_photo)}}" width="100"></td>
                                     <form action="{{route('food_types.destroy',$item)}}" method="POST">
 

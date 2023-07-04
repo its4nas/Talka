@@ -33,7 +33,7 @@ class FoodTypeController extends Controller
         $bath=$request->file('food_type_photo')->store('food_types');
         // return dd($request->all());
         food_type::create([
-            'type_name'=>$request->type_name,
+            'food_type_name'=>$request->food_type_name,
             'food_type_photo'=>$bath,
         ]);
 

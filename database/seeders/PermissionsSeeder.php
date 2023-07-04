@@ -40,7 +40,7 @@ class PermissionsSeeder extends Seeder
             ->givePermissionTo(Permission::all());
         Role::updateOrCreate(["name" => "user"], ['guard_name' => 'web', "name" => "user"]);
 
-        $user = User::whereEmail('anas@gmail.com')->first(); // enter your email here
+        $user = User::whereEmail('anas202255@gmail.com')->first(); // enter your email here
         $user->assignRole('admin');
 
 

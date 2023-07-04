@@ -14,9 +14,9 @@
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">إسم الصنف</label>
                             <div class="col-sm-6">
-                                <input class="form-control @error('food_type_name') is-invalid @enderror" value="{{old('type_name')}}" type="text" name="type_name">
+                                <input class="form-control @error('food_type_name') is-invalid @enderror" value="{{old('food_type_name')}}" type="text" name="food_type_name">
                             </div>
-                            @error('type_name')
+                            @error('food_type_name')
                             <div style="color:red" role="alert">
                                 {{$message}}
                             </div>

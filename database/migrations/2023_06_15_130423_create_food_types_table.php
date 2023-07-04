@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('food_types', function (Blueprint $table) {
             $table->id();
-            $table->string('type_name')->nullable(false);
+            $table->string('food_type_name')->nullable(false);
+            $table->text('food_type_photo')->nullable();
             $table->timestamps();
         });
     }
