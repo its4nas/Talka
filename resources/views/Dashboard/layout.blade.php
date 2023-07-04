@@ -72,30 +72,43 @@
                                 </a>
                             </li>
 
+                            @can('access-users')
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="ion ion-md-person"></i> <span> المستخدمون </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="{{route('users.index')}}">عرض كل المستخدمين</a></li>
+                                    @can('create-users')
                                     <li><a href="{{route('users.create')}}">إضافة مستخدم جديد</a></li>
+                                    @endcan
                                 </ul>
                             </li>
+                            @endcan
 
+                            @can('access-offers')
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="ion ion-md-pizza"></i> <span> العروض </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="{{route('offers.index')}}">عرض كل العروض</a></li>
+                                    @can('create-offers')
                                     <li><a href="{{route('offers.create')}}">إضافة عرض جديد</a></li>
+                                    @endcan
                                 </ul>
                             </li>
+                            @endcan
 
+                            @can('access-restaurants')
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="ion ion-md-cafe"></i> <span> المطاعم </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="{{route('restaurants.index')}}">عرض كل المطاعم</a></li>
+                                    @can('create-restaurants')
                                     <li><a href="{{route('restaurants.create')}}">إضافة مطعم جديد</a></li>
+                                    @endcan
                                 </ul>
                             </li>
+                            @endcan
 
+                            @can('access-orders')
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="ion ion-md-basket"></i> <span> الطلبات </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                                 <ul class="list-unstyled">
@@ -103,14 +116,19 @@
                                     <li><a href="{{route('orders.create')}}">إضافة طلب جديد</a></li>
                                 </ul>
                             </li>
+                            @endcan
 
+                            @can('access-roles')
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="ion ion-md-key"></i> <span> الصلاحيات </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="{{route('roles.index')}}">عرض كل الصلاحيات</a></li>
+                                    @can('create-roles')
                                     <li><a href="{{route('roles.create')}}">إضافة صلاحية جديدة</a></li>
+                                    @endcan
                                 </ul>
                             </li>
+                            @endcan
 
                         </ul>
                     </div>

@@ -80,6 +80,7 @@ class UserController extends Controller
             'phone'=>$request->phone,
         ]);
 
+        // $user->assignRole($request->roles);
 
         toastr()->success('تم تعديل البيانات بنجاح');
         return redirect('/users');
