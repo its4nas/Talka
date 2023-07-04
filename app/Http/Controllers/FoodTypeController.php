@@ -13,7 +13,8 @@ class FoodTypeController extends Controller
      */
     public function index()
     {
-        //
+        $food_types = food_type::all();
+        return view('food_type.index',compact('food_types'));
     }
 
     /**
@@ -21,7 +22,7 @@ class FoodTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('food_type.create');
     }
 
     /**
@@ -29,7 +30,15 @@ class FoodTypeController extends Controller
      */
     public function store(Storefood_typeRequest $request)
     {
-        //
+        $bath=$request->file('food_type_photo')->store('food_types');
+        // return dd($request->all());
+        food_type::create([
+            'type_name'=>$request->type_name,
+            'food_type_photo'=>$bath,
+        ]);
+
+        toastr()->success('تم إضافة الصنف بنجاح');
+        return redirect('/food_types');
     }
 
     /**

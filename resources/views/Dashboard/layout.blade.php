@@ -118,6 +118,18 @@
                             </li>
                             @endcan
 
+                            @can('access-food_types')
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="ion ion-md-cafe"></i> <span> الاصناف </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="{{route('food_type.index')}}">عرض كل الاصناف</a></li>
+                                    @can('create-food_types')
+                                    <li><a href="{{route('food_type.create')}}">إضافة صنف جديد</a></li>
+                                    @endcan
+                                </ul>
+                            </li>
+                            @endcan
+
                             @can('access-roles')
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="ion ion-md-key"></i> <span> الصلاحيات </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>

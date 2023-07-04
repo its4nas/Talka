@@ -27,8 +27,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::all();
-        return view('User.add_user',compact('roles'));
+        // $roles = Role::all();
+        // return view('User.add_user',compact('roles'));
     }
 
     /**
@@ -80,7 +80,7 @@ class UserController extends Controller
             'phone'=>$request->phone,
         ]);
 
-        // $user->assignRole($request->roles);
+        $user->syncRoles($request->role);
 
         toastr()->success('تم تعديل البيانات بنجاح');
         return redirect('/users');

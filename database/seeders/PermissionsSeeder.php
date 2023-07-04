@@ -23,6 +23,7 @@ class PermissionsSeeder extends Seeder
             "roles" => ['access', 'create', 'update', 'delete'],
             "restaurants" => ['access', 'create', 'update', 'delete'],
             "offers" => ['access', 'create', 'update', 'delete'],
+            "food_types" => ['access', 'create', 'update', 'delete'],
             "orders" => ['access', 'delete'],
             "settings" => ['access', 'update'],
         ]);

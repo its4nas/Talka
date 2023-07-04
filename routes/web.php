@@ -29,6 +29,7 @@ Route::resource('users', App\Http\Controllers\UserController::class)->middleware
 
 Route::resource('offers', App\Http\Controllers\OfferController::class)->middleware(['auth', 'verified']);
 
+Route::resource('food_types', App\Http\Controllers\FoodTypeController::class);
 
 Route::resource('orders', App\Http\Controllers\OrderController::class)->middleware(['auth', 'verified']);
 Route::get('/', function () {
