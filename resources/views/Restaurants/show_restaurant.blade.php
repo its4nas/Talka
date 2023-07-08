@@ -24,11 +24,12 @@
                                 <h4> صورة لشعار المطعم: </h4>
                                 <img src="{{url('storage/'.$restaurant->restaurant_photo)}}" width="200">
                             </div>
+                            <div class="alert alert-danger mb-0" role="alert"><strong>ملاحظة:</strong> اذا حذفت المطعم سيتم حذف كل العروض الخاصة بالمطعم</div>
                             <form action="{{route('restaurants.destroy',$restaurant)}}" method="post">
                                 @csrf
                                 @method("DELETE")
                                 <input type="hidden" asp-for="user_id" />
-                                <input type="submit" value="حذف" class="btn btn-danger" onclick="var result=confirm('هل انت متأكد من خيار الحذف؟')
+                                <input type="submit" value="حذف" class="btn btn-danger" onclick="var result=confirm(' هل انت متأكد من خيار الحذف؟')
                                 if(result){} else{event.preventDefault()}" /> |
                                 <a href="{{route('restaurants.index')}}" style="color: #ffa200">العودة الى القائمة</a>
                             </form>

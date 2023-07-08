@@ -73,7 +73,7 @@
                                     <option value="">اختر صنف الطعام</option>
                                     @foreach ( $food_types as $item)
 
-                                    <option value="{{$item->id}}">{{$item->type_name}}</option>
+                                    <option value="{{$item->id}}">{{$item->food_type_name}}</option>
 
                                     @endforeach
                                 </select>

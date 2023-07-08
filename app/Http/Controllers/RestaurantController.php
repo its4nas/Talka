@@ -8,6 +8,17 @@ use App\Http\Requests\UpdateRestaurantRequest;
 
 class RestaurantController extends Controller
 {
+
+    public function __construct()
+    {
+//        $this->middleware(['role:admin','permission:access-brands|edit articles']);
+
+        $this->middleware('permission:access-restaurants', ['only' => ['index', 'show']]);
+        $this->middleware('permission:create-restaurants', ['only' => ['create', 'store']]);
+        $this->middleware('permission:update-restaurants', ['only' => ['edit', 'store']]);
+        $this->middleware('permission:delete-restaurants', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -77,7 +88,7 @@ class RestaurantController extends Controller
             'location'=>$request->location,
             'description'=>$request->description
         ]);
-        
+
         toastr()->success('تم تعديل البيانات بنجاح');
         return redirect('/restaurants');
     }
