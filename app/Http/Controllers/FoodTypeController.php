@@ -8,6 +8,14 @@ use App\Http\Requests\Updatefood_typeRequest;
 
 class FoodTypeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:access-food_types', ['only' => ['index', 'show']]);
+        $this->middleware('permission:create-food_types', ['only' => ['create', 'store']]);
+        $this->middleware('permission:update-food_types', ['only' => ['edit', 'store']]);
+        $this->middleware('permission:delete-food_types', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      */

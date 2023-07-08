@@ -8,6 +8,14 @@ use App\Http\Requests\UpdateOrderRequest;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:access-orders', ['only' => ['index', 'show']]);
+        // $this->middleware('permission:create-orders', ['only' => ['create', 'store']]);
+        // $this->middleware('permission:update-orders', ['only' => ['edit', 'store']]);
+        $this->middleware('permission:delete-orders', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      */

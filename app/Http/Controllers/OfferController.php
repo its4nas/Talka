@@ -10,6 +10,14 @@ use App\Http\Requests\UpdateOfferRequest;
 
 class OfferController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:access-offers', ['only' => ['index', 'show']]);
+        $this->middleware('permission:create-offers', ['only' => ['create', 'store']]);
+        $this->middleware('permission:update-offers', ['only' => ['edit', 'store']]);
+        $this->middleware('permission:delete-offers', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      */

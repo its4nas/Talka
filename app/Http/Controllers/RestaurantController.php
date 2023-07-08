@@ -11,8 +11,6 @@ class RestaurantController extends Controller
 
     public function __construct()
     {
-//        $this->middleware(['role:admin','permission:access-brands|edit articles']);
-
         $this->middleware('permission:access-restaurants', ['only' => ['index', 'show']]);
         $this->middleware('permission:create-restaurants', ['only' => ['create', 'store']]);
         $this->middleware('permission:update-restaurants', ['only' => ['edit', 'store']]);
