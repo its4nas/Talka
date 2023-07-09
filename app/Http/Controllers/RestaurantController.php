@@ -46,7 +46,7 @@ class RestaurantController extends Controller
             'restaurant_name'=>$request->restaurant_name,
             'restaurant_photo'=>$bath,
             'location'=>$request->location,
-            'description'=>$request->description
+            'description'=>$request->description,
         ]);
 
         toastr()->success('تم إضافة المطعم بنجاح');
@@ -96,7 +96,10 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
+        $restaurant->deleted_by=auth()->id();
+        $restaurant->save();
         $restaurant->delete();
+
         toastr()->success('تم حذف الحقل بنجاح');
         return redirect('/restaurants');
     }

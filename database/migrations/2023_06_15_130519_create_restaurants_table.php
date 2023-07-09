@@ -17,6 +17,8 @@ return new class extends Migration
             $table->text('restaurant_photo');
             $table->string('location')->nullable(false);
             $table->text('description')->nullable(false);
+            $table->foreignId('deleted_by')->constrained('users','id')->nullable()->default(null);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
