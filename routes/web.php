@@ -27,6 +27,8 @@ Route::get('dashboard',[App\Http\Controllers\AdminController::class,'index'])->m
 
 Route::resource('users', App\Http\Controllers\UserController::class)->middleware(['auth', 'verified']);
 Route::get('user/trash', [App\Http\Controllers\UserController::class, 'trash'])->middleware(['auth', 'verified'])->name('users.trash');
+Route::get('user/restore/{id}',[App\Http\Controllers\UserController::class,'restore'])->middleware(['auth', 'verified'])->name('users.restore');
+Route::get('user/forceDelete/{id}',[App\Http\Controllers\UserController::class,'forceDelete'])->middleware(['auth', 'verified'])->name('users.forceDelete');
 
 Route::resource('offers', App\Http\Controllers\OfferController::class)->middleware(['auth', 'verified']);
 Route::get('offer/trash', [App\Http\Controllers\OfferController::class,'trash'])->middleware(['auth', 'verified'])->name('offers.trash');
@@ -52,6 +54,8 @@ require __DIR__.'/auth.php';
 
 Route::resource('restaurants', App\Http\Controllers\RestaurantController::class)->middleware(['auth', 'verified']);
 Route::get('restaurant/trash', [App\Http\Controllers\RestaurantController::class,'trash'])->middleware(['auth', 'verified'])->name('restaurants.trash');
+Route::get('restaurant/restore/{id}',[App\Http\Controllers\RestaurantController::class,'restore'])->middleware(['auth', 'verified'])->name('restaurants.restore');
+Route::get('restaurant/forceDelete/{id}',[App\Http\Controllers\RestaurantController::class,'forceDelete'])->middleware(['auth', 'verified'])->name('restaurants.forceDelete');
 
 
 Route::resource('messages',App\Http\Controllers\MessageController::class)->middleware(['auth', 'verified']);

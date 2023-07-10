@@ -108,4 +108,21 @@ class RestaurantController extends Controller
         $restaurants = Restaurant::onlyTrashed()->paginate(3);
         return view('Trash.deleted_restaurants',compact('restaurants'));
     }
+
+    public function restore($id)
+    {
+        Restaurant::onlyTrashed()->where('id',$id)->restore();
+        toastr()->success('تم استعادة الحقل بنجاح');
+        return redirect('/restaurants');
+
+    }
+
+    public function forceDelete($id)
+    {
+        Restaurant::onlyTrashed()->where('id',$id)->forceDelete();
+        toastr()->success('تم حذف الحقل بنجاح');
+        return redirect('/restaurant/trash');
+
+    }
+
 }

@@ -108,4 +108,20 @@ class UserController extends Controller
         $users = User::onlyTrashed()->paginate(3);
         return view('Trash.deleted_users',compact('users'));
     }
+
+    public function restore($id)
+    {
+        User::onlyTrashed()->where('id',$id)->restore();
+        toastr()->success('تم استعادة الحقل بنجاح');
+        return redirect('/users');
+
+    }
+
+    public function forceDelete($id)
+    {
+        User::onlyTrashed()->where('id',$id)->forceDelete();
+        toastr()->success('تم حذف الحقل بنجاح');
+        return redirect('/user/trash');
+
+    }
 }
