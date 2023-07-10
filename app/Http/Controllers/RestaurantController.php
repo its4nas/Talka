@@ -22,8 +22,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::paginate(3);
-
+        $restaurants = Restaurant::withoutTrashed()->paginate(3);
         return view('Restaurants.restaurants',compact('restaurants'));
     }
 

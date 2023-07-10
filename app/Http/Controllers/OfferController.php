@@ -62,7 +62,7 @@ class OfferController extends Controller
      */
     public function show(Offer $offer)
     {
-        //
+        return view('Offer.show_offer',compact('offer'));
     }
 
     /**
@@ -70,7 +70,10 @@ class OfferController extends Controller
      */
     public function edit(Offer $offer)
     {
-        //
+
+        $restaurants = Restaurant::all();
+        $food_types = food_type::all();
+        return view('Offer.edit_offer',compact('offer','food_types','restaurants'));
     }
 
     /**
@@ -78,7 +81,21 @@ class OfferController extends Controller
      */
     public function update(UpdateOfferRequest $request, Offer $offer)
     {
-        //
+        $bath = $offer->offer_photo;
+        if($request->hasFile('offer_photo'))
+        {
+            $bath=$request->file('offer_photo')->store('offers');
+            // storage::delete($offer->offer_photo);
+        }
+        $offer->Update([
+            'offer_name'=>$request->offer_name,
+            'offer_photo'=>$bath,
+            'restaurant_id'=>$request->restaurant,
+            'type_id'=>$request->food_type,
+            'price'=>$request->price
+        ]);
+        toastr()->success('تم تعديل البيانات بنجاح');
+        return redirect('/offers');
     }
 
     /**
@@ -86,6 +103,9 @@ class OfferController extends Controller
      */
     public function destroy(Offer $offer)
     {
-        //
+        $offer->delete();
+
+        toastr()->success('تم حذف الحقل بنجاح');
+        return redirect('/offers');
     }
 }
