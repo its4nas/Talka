@@ -16,10 +16,12 @@ return new class extends Migration
             $table->unsignedBigInteger('restaurant_id');
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade')->onUpdate('cascade');
             $table->string('offer_name')->nullable(false);
-            $table->integer('price')->nullable(false);
+            $table->double('price')->nullable(false);
             $table->text('offer_photo');
             $table->unsignedBigInteger('type_id');
             $table->foreign('type_id')->references('id')->on('food_types')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('deleted_by')->constrained('users','id')->nullable()->default(null);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

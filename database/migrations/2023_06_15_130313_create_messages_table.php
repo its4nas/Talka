@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name')->nullable(false);
             $table->string('email')->nullable(false);
             $table->longText('message')->nullable(false);
+            $table->foreignId('deleted_by')->constrained('users','id')->nullable()->default(null);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

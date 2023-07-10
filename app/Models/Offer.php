@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Offer extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $guarded=['id','created_at','updated_at'];
 
@@ -25,5 +28,5 @@ class Offer extends Model
     {
         return $this->belongsTo(User::class, 'deleted_by');
     }
-    
+
 }

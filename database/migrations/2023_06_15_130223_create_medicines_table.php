@@ -18,6 +18,9 @@ return new class extends Migration
             $table->text('medicine_photo');
             $table->string('location');
             $table->integer('quantity');
+            $table->boolean('status');
+            $table->foreignId('deleted_by')->constrained('users','id')->nullable()->default(null);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

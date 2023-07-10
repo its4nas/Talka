@@ -50,7 +50,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        $users = User::all();
+        
         return view('User.show_user',compact('user'));
     }
 

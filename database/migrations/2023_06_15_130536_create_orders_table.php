@@ -19,6 +19,8 @@ return new class extends Migration
             $table->foreign('offer_id')->references('id')->on('offers');
             $table->string('location')->nullable(false);
             $table->boolean('status')->nullable(false)->default(0);
+            $table->foreignId('deleted_by')->constrained('users','id')->nullable()->default(null);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

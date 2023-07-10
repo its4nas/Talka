@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('food_type_name')->nullable(false);
             $table->text('food_type_photo')->nullable();
+            $table->foreignId('deleted_by')->constrained('users','id')->nullable()->default(null);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
