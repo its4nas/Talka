@@ -20,4 +20,10 @@ class Offer extends Model
     {
         return $this->belongsTo(Restaurant::class,'restaurant_id');
     }
+
+    public function deleted_by_who()
+    {
+        return $this->belongsTo(User::class, 'deleted_by');
+    }
+    
 }

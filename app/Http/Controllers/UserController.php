@@ -48,9 +48,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return view('User.show_user',compact('user'));
     }
 
     /**
@@ -92,8 +92,19 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->deleted_by=auth()->id();
+        $user->save();
+        $user->delete();
+
+        toastr()->success('تم حذف الحقل بنجاح');
+        return redirect('/users');
+    }
+
+    public function trash()
+    {
+        $users = User::onlyTrashed()->paginate(3);
+        return view('Trash.deleted_users',compact('users'));
     }
 }

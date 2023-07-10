@@ -77,9 +77,9 @@
                                 <a href="javascript:void(0);" class="waves-effect"><i class="ion ion-md-person"></i> <span> المستخدمون </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="{{route('users.index')}}">عرض كل المستخدمين</a></li>
-                                    @can('create-users')
+                                    {{-- @can('create-users')
                                     <li><a href="{{route('users.create')}}">إضافة مستخدم جديد</a></li>
-                                    @endcan
+                                    @endcan --}}
                                 </ul>
                             </li>
                             @endcan
@@ -141,6 +141,16 @@
                                 </ul>
                             </li>
                             @endcan
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="ion ion-md-key"></i> <span> سلة المحذوفات </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="{{route('roles.index')}}">المستخدمون المحذوفون</a></li>
+                                    <li><a href="{{route('roles.create')}}">المطاعم المحذوفة</a></li>
+                                    <li><a href="{{route('roles.create')}}">الطلبات المحذوفة</a></li>
+                                    <li><a href="{{route('roles.create')}}">العروض المحذوفة</a></li>
+                                </ul>
+                            </li>
 
                         </ul>
                     </div>

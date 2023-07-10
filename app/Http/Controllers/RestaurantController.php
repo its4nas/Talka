@@ -103,4 +103,10 @@ class RestaurantController extends Controller
         toastr()->success('تم حذف الحقل بنجاح');
         return redirect('/restaurants');
     }
+
+    public function trash()
+    {
+        $restaurants = Restaurant::onlyTrashed()->paginate(3);
+        return view('Trash.deleted_restaurants',compact('restaurants'));
+    }
 }

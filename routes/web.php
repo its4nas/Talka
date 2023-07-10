@@ -26,6 +26,7 @@ Route::get('dashboard',[App\Http\Controllers\AdminController::class,'index'])->m
 // Route::get('users/edit_user/{id}',[App\Http\Controllers\UserController::class,'edit']);
 
 Route::resource('users', App\Http\Controllers\UserController::class)->middleware(['auth', 'verified']);
+Route::get('/users_trash', [App\Http\Controllers\UserController::class,'trash'])->middleware(['auth', 'verified']);
 
 Route::resource('offers', App\Http\Controllers\OfferController::class)->middleware(['auth', 'verified']);
 
@@ -44,8 +45,9 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::resource('restaurants', App\Http\Controllers\RestaurantController::class);
+Route::resource('restaurants', App\Http\Controllers\RestaurantController::class)->middleware(['auth', 'verified']);
+Route::get('restaurants_trash', [App\Http\Controllers\RestaurantController::class,'trash'])->middleware(['auth', 'verified']);
 
-Route::resource('messages',App\Http\Controllers\MessageController::class);
+Route::resource('messages',App\Http\Controllers\MessageController::class)->middleware(['auth', 'verified']);
 
-Route::resource('roles', App\Http\Controllers\UserRoleController::class);
+Route::resource('roles', App\Http\Controllers\UserRoleController::class)->middleware(['auth', 'verified']);

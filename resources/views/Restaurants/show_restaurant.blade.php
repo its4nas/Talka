@@ -28,7 +28,6 @@
                             <form action="{{route('restaurants.destroy',$restaurant)}}" method="post">
                                 @csrf
                                 @method("DELETE")
-                                <input type="hidden" asp-for="user_id" />
                                 <input type="submit" value="حذف" class="btn btn-danger" onclick="var result=confirm(' هل انت متأكد من خيار الحذف؟')
                                 if(result){} else{event.preventDefault()}" /> |
                                 <a href="{{route('restaurants.index')}}" style="color: #ffa200">العودة الى القائمة</a>

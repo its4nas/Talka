@@ -20,6 +20,8 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('phone');
             $table->string('password')->nullable(false);
+            $table->foreignId('deleted_by')->constrained('users','id')->nullable()->default(null);
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
 
