@@ -120,7 +120,7 @@
 
                             @can('access-food_types')
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="ion ion-md-cafe"></i> <span> الاصناف </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="ion ion-md-filing"></i> <span> الاصناف </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="{{route('food_types.index')}}">عرض كل الاصناف</a></li>
                                     @can('create-food_types')
@@ -149,6 +149,7 @@
                                     <li><a href="{{route('restaurants.trash')}}">المطاعم المحذوفة</a></li>
                                     <li><a href="{{route('orders.trash')}}">الطلبات المحذوفة</a></li>
                                     <li><a href="{{route('offers.trash')}}">العروض المحذوفة</a></li>
+                                    <li><a href="{{route('food_types.trash')}}">الاصناف المحذوفة</a></li>
                                 </ul>
                             </li>
 

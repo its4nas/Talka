@@ -35,6 +35,9 @@ Route::get('offer/trash', [App\Http\Controllers\OfferController::class,'trash'])
 
 
 Route::resource('food_types', App\Http\Controllers\FoodTypeController::class);
+Route::get('food_type/trash',[App\Http\Controllers\FoodTypeController::class, 'trash'])->middleware(['auth', 'verified'])->name('food_types.trash');
+Route::get('food_type/restore/{id}',[App\Http\Controllers\FoodTypeController::class,'restore'])->middleware(['auth', 'verified'])->name('food_types.restore');
+Route::get('food_type/forceDelete/{id}',[App\Http\Controllers\FoodTypeController::class,'forceDelete'])->middleware(['auth', 'verified'])->name('food_types.forceDelete');
 
 Route::resource('orders', App\Http\Controllers\OrderController::class)->middleware(['auth', 'verified']);
 Route::get('order/trash', [App\Http\Controllers\OrderController::class,'trash'])->middleware(['auth', 'verified'])->name('orders.trash');
