@@ -410,10 +410,10 @@
                   <input type="email" class="form-control" name="email" id="email" required>
                 </div>
               </div>
-              {{-- <div class="form-group">
+              <div class="form-group">
                 <label for="name">الموضوع:</label>
                 <input type="text" class="form-control" name="subject" id="subject" required>
-              </div> --}}
+              </div>
               <div class="form-group">
                 <label for="name">الرسالة:</label>
                 <textarea class="form-control" name="message" rows="10" required></textarea>

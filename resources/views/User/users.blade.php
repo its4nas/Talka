@@ -8,7 +8,7 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="mt-0 header-title mb-4" >Users</h4>
+                <h4 class="mt-0 header-title mb-4" >المستخدمون</h4>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -19,7 +19,7 @@
                                 <th scope="col">الصلاحية</th>
                                 <th scope="col">رقم الهاتف</th>
                                 <th scope="col">تاريخ الانضمام</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">الخيارات</th>
                             </tr>
                         </thead>
                         <tbody>

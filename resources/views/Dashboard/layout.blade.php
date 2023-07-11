@@ -143,7 +143,7 @@
                             @endcan
 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="ion ion-md-key"></i> <span> سلة المحذوفات </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="ion ion-md-trash"></i> <span> سلة المحذوفات </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="{{route('users.trash')}}">المستخدمون المحذوفون</a></li>
                                     <li><a href="{{route('restaurants.trash')}}">المطاعم المحذوفة</a></li>

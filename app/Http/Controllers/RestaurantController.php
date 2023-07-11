@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Restaurant;
+use App\Models\Offer;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
 
@@ -57,7 +58,8 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        return view('Restaurants.show_restaurant',compact('restaurant'));
+        $offers = Offer::all();
+        return view('Restaurants.show_restaurant',compact('offers','restaurant'));
     }
 
     /**

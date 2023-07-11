@@ -30,7 +30,7 @@ class MessageController extends Controller
     public function store(StoreMessageRequest $request)
     {
         // $this->validate($request, [ 'name' => 'required', 'email'=> 'required', 'message'=> 'required' ]);
-        // return dd($request->all());
+        return dd($request->all());
         Message::create(
             [
                 'name'=>$request->name,
@@ -38,6 +38,8 @@ class MessageController extends Controller
                 'message'=>$request->message
             ]
             );
+
+            return redirect('/offers');
     }
 
     /**

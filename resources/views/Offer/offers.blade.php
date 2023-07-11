@@ -19,7 +19,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">إسم العرض</th>
                                 <th scope="col">إسم المطعم</th>
-                                <th scope="col">صورة المطعم</th>
+                                <th scope="col">صورة العرض</th>
                                 <th scope="col">الموقع</th>
                                 <th scope="col">الوصف</th>
                                 <th scope="col">السعر</th>

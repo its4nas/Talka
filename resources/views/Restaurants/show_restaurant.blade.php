@@ -2,7 +2,6 @@
 @section('content')
 <!-- boooooooooooooooooooooooooooooooooooooooooooooooooody -->
 
-<section class="vh-100" >
     <div class="container py-5 h-10">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col col-md-12 col-lg-10 col-xl-8">
@@ -50,6 +49,48 @@
         </div>
       </div>
     </div>
-  </section>
 
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="mt-0 header-title mb-4" style="font-size: 25px">العروض</h4>
+
+                <br><br>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                           <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">إسم العرض</th>
+                                <th scope="col">صورة العرض</th>
+                                <th scope="col">تاريخ انشاء العرض</th>
+                                <th scope="col">السعر</th>
+                                <th scope="col">الصنف</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach ( $offers as $item)
+                                <tr>
+                                    @if ($item->restaurant->id == $restaurant->id)
+                                    <th scope="row">{{$item->id}}</th>
+                                    <td>{{$item->offer_name}}</td>
+                                    <td><img src="{{url('storage/'.$item->offer_photo)}}" width="50"></td>
+                                    <td>{{$item->created_at}}</td>
+                                    <td>{{$item->price}}</td>
+                                    <td>{{$item->food_type->food_type_name}}</td>
+                                    @endif
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- end colm -->
+
+</div>
 @endsection
