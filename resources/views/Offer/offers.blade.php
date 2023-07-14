@@ -31,7 +31,7 @@
 
                             @foreach ( $offers as $item)
                                 <tr>
-                                    @if (empty($item->restaurant->restaurant_name))
+                                    @if (empty($item->restaurant->restaurant_name) || empty($item->food_type->food_type_name))
                                         @else
                                     {{-- <th scope="row">{{ $index++ }} </th> --}}
                                     <th scope="row">{{$item->id}}</th>

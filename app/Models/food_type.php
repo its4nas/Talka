@@ -17,4 +17,9 @@ class food_type extends Model
     {
         return $this->belongsTo(User::class, 'deleted_by');
     }
+
+    public function offers()
+    {
+        return $this->hasMany(Offer::class);
+    }
 }

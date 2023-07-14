@@ -103,9 +103,35 @@ class OfferController extends Controller
      */
     public function destroy(Offer $offer)
     {
+        
+        $offer->deleted_by=auth()->id();
+        $offer->save();
         $offer->delete();
 
         toastr()->success('تم حذف الحقل بنجاح');
         return redirect('/offers');
+    }
+
+
+    public function trash()
+    {
+        $offers = Offer::onlyTrashed()->paginate(3);
+        return view('Trash.deleted_offers')->with('offers',$offers);
+    }
+
+    public function restore($id)
+    {
+        Offer::onlyTrashed()->where('id',$id)->restore();
+        toastr()->success('تم استعادة الحقل بنجاح');
+        return redirect('/offers');
+
+    }
+
+    public function forceDelete($id)
+    {
+        Offer::onlyTrashed()->where('id',$id)->forceDelete();
+        toastr()->success('تم حذف الحقل بنجاح');
+        return redirect('/offer/trash');
+
     }
 }

@@ -17,6 +17,11 @@
                             <div class="col-12 pt-3">
                                 أسم الصلاحية<input type="text" name="name" required maxlength="190" class="form-control" value="{{old('name',$role??"")}}">
                             </div>
+                            @error('name')
+                            <div style="color:red" role="alert">
+                                {{$message}}
+                            </div>
+                            @enderror
                         </div>
 
                     </div>

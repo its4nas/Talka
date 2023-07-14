@@ -29,7 +29,7 @@
                                     <th scope="row">{{$item->id}}</th>
                                     <td>{{$item->food_type_name}}</td>
                                     <td><img src="{{url('storage/'.$item->food_type_photo)}}" width="100"></td>
-                                    <form action="{{route('food_types.destroy',$item)}}" method="POST">
+                                    <form action="{{route('food_types.destroy',$item,$item->id)}}" method="POST">
 
                                     <td>
                                         @can('update-food_types')

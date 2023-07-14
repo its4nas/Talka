@@ -22,7 +22,8 @@ class Updatefood_typeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'food_type_name'=>'required|max:50',
+            'food_type_photo'=>'max:5120|image',
         ];
     }
 }

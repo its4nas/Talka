@@ -22,8 +22,8 @@ class Storefood_typeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'food_type_name'=>'required|max:255',
-            'food_type_photo'=>'max:5120|image',
+            'food_type_name'=>'required|max:50|unique:food_types',
+            'food_type_photo'=>'required|max:5120|image',
         ];
     }
 }

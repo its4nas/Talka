@@ -33,14 +33,13 @@
                                     <td><img src="{{url('storage/'.$item->food_type_photo)}}" width="100"></td>
                                     <td>{{$item->deleted_by_who->name}}</td>
                                     <td>{{$item->deleted_at}}</td>
-                                    <td>
                                         <td>
                                             <a href="{{route('food_types.restore',$item->id)}}" onclick="var result=confirm(' هل انت متأكد من خيار الاستعادة؟')
                                             if(result){} else{event.preventDefault()}" style="color: #0080ff;"><button class="btn btn-outline-primary">إستعادة</button></a>
                                            <a href="{{route('food_types.forceDelete',$item->id)}}" onclick="var result=confirm(' هل انت متأكد من خيار الحذف النهائي؟')
                                            if(result){} else{event.preventDefault()}" style="color: #ff4040;"><button class="btn btn-outline-danger">حذف نهائي</button></a>
                                        </td>
-                                    </td>
+
                                 </tr>
                             @endforeach
                         </tbody>

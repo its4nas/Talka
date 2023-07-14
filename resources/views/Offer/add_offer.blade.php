@@ -17,7 +17,7 @@
                             <label class="col-sm-2 col-form-label">إسم المطعم</label>
                             <div class="col-sm-6">
                                 <select class="form-control" name="restaurant">
-                                    <option value="">اختر المطعم</option>
+                                    <option>اختر المطعم</option>
                                     @foreach ( $restaurants as $item)
 
                                     <option value="{{$item->id}}">{{$item->restaurant_name}}</option>
