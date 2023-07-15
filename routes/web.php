@@ -48,6 +48,10 @@ Route::get('order/trash', [App\Http\Controllers\OrderController::class,'trash'])
 Route::get('/', function () {
     return view('Home.index');
 })->name('home');
+Route::get('offers',function()
+{
+    return view('Home.offers');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
