@@ -433,6 +433,14 @@ h6 {
 {
     color: #37517e;
 }
+.btn-warning
+{
+    background-color: #e49d47;
+}
+.btn-warning:hover
+{
+    background-color: #e49d47;
+}
 #hero .btn-watch-video {
   font-size: 16px;
   display: flex;

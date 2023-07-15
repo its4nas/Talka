@@ -45,13 +45,8 @@ Route::resource('orders', App\Http\Controllers\OrderController::class)->middlewa
 Route::get('order/trash', [App\Http\Controllers\OrderController::class,'trash'])->middleware(['auth', 'verified'])->name('orders.trash');
 
 
-Route::get('/', function () {
-    return view('Home.index');
-})->name('home');
-Route::get('offers',function()
-{
-    return view('Home.offers');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('food_offers', [App\Http\Controllers\HomeController::class, 'food_offer'])->name('food_offer');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
