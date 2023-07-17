@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\user_role;
 use App\Http\Requests\Storeuser_roleRequest;
 use App\Http\Requests\Updateuser_roleRequest;
 use Spatie\Permission\Models\Permission;
@@ -59,9 +58,11 @@ class UserRoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(user_role $user_role)
+    public function edit(Updateuser_roleRequest $request ,Role $role)
     {
-        //
+        $groups = Permission::select('group')->distinct()->get();
+
+        return view('roles.create', compact('groups', 'role'));
     }
 
     /**
