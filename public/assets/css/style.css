@@ -433,6 +433,16 @@ h6 {
 {
     color: #37517e;
 }
+.btn-outline-warning:hover
+{
+    background-color: #e49d47;
+    color: white;
+}
+.btn-outline-warning
+{
+    color: #37517e;
+    background-color: white;
+}
 .btn-warning
 {
     background-color: #e49d47;
