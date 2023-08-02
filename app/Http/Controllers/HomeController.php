@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreOfferInCartRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Offer;
@@ -28,20 +29,30 @@ class HomeController extends Controller
         return view('Home.offers',compact('offers','food_type'));
     }
 
-    public function add_to_cart(Offer $offer)
+    public function add_to_cart(StoreOfferInCartRequest $request,Offer $offer)
     {
 
+        // return dd($offer);
+
         $userId = Auth::user()->id;
-        foreach($offer as $item)
-        {
+        // foreach($offer as $item)
+        // {
             Cart::session($userId)->add([
-                'id'=>$item->id,
-                'name'=>$item->offer_name,
-                'price'=>$item->price,
+                'id'=>$offer->id,
+                'name'=>$offer->offer_name,
+                'price'=>$offer->price,
                 'quantity'=>1,
             ]);
-        }
+        // }
 
+        toastr()->success('تم إضافة العرض بنجاح');
+        return redirect('/food_offers');
+
+    }
+
+    public function view_cart()
+    {
+        $userId = Auth::user()->id;
         $cart = Cart::session($userId)->getContent();
         return dd($cart);
     }

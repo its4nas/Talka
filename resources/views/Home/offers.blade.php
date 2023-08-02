@@ -51,8 +51,9 @@
     <div class="row justify-content-center mb-3">
     <div class="col-md-12 col-xl-10">
         <div class="card shadow-0 border rounded-3">
-        <form method="get"  action="{{route('cart')}}">
+        <form method="post"  action="{{route('cart',$item)}}">
             @csrf
+            @method('put')
             <div class="card-body">
                 <div class="row">
                 <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
@@ -92,7 +93,7 @@
                     </div>
                     {{-- <h6 class="text-success">Free shipping</h6> --}}
                     <div class="d-flex flex-column mt-4">
-                    <button class="btn btn-primary btn-sm" type="button">Details</button>
+                    <a href="{{route('view_cart')}}"><button class="btn btn-primary btn-sm" type="button">Details</button></a>
 
                         <button class="btn btn-outline-warning btn-sm mt-2" type="submit">
                             إضافة الى السلة
