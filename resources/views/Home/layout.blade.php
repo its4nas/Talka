@@ -52,7 +52,7 @@
           <li>@if (Route::has('login'))
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                 @auth
-
+                <li><a class="nav-link scrollto" href="{{route('view_cart')}}">  <i class="bi bi-cart4" style="font-size: 18px"></i>   السلة </a></li>
                 <li class="dropdown"><a href="#"><span>{{Auth::user()->name}}</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
 

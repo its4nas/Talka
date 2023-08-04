@@ -93,7 +93,7 @@
                     </div>
                     {{-- <h6 class="text-success">Free shipping</h6> --}}
                     <div class="d-flex flex-column mt-4">
-                    <a href="{{route('view_cart')}}"><button class="btn btn-primary btn-sm" type="button">Details</button></a>
+                    <a href="{{route('view_cart')}}" class="btn btn-primary btn-sm">Details</a>
 
                         <button class="btn btn-outline-warning btn-sm mt-2" type="submit">
                             إضافة الى السلة

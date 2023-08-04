@@ -49,6 +49,9 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('food_offers', [App\Http\Controllers\HomeController::class, 'food_offer'])->name('food_offer');
 Route::put('cart/{offer}', [App\Http\Controllers\HomeController::class, 'add_to_cart'])->name('cart');
 Route::get('view_cart', [App\Http\Controllers\HomeController::class, 'view_cart'])->name('view_cart');
+Route::get('decrease/{id}',[App\Http\Controllers\HomeController::class, 'decrease'])->name('decrease');
+Route::get('increase/{id}',[App\Http\Controllers\HomeController::class, 'increase'])->name('increase');
+Route::get('delete_item_from_cart/{id}',[App\Http\Controllers\HomeController::class, 'delete_item_from_cart'])->name('delete_item_from_cart');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

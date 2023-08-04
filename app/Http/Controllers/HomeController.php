@@ -35,17 +35,36 @@ class HomeController extends Controller
         // return dd($offer);
 
         $userId = Auth::user()->id;
+
+        $saleCondition = new \Darryldecode\Cart\CartCondition(array(
+            'name' => 'SALE 5%',
+            'type' => 'tax',
+            'value' => '-5%',
+        ));
+
         // foreach($offer as $item)
         // {
             Cart::session($userId)->add([
                 'id'=>$offer->id,
                 'name'=>$offer->offer_name,
                 'price'=>$offer->price,
+                'restaurant_name' => $offer->restaurant->restaurnt_name,
+                'offer_photo' => $offer->offer_photo,
                 'quantity'=>1,
+                'attributes' => array(
+                    'restaurant_name' => $offer->restaurant->restaurant_name,
+                    'offer_photo' => $offer->offer_photo,
+                    'food_type' => $offer->food_type->food_type_name,
+                    'location'=>$offer->restaurant->location,
+                    'description'=>$offer->restaurant->description,
+
+
+                ),
+                'conditions' => $saleCondition,
             ]);
         // }
 
-        toastr()->success('تم إضافة العرض بنجاح');
+        toastr()->success('تم إضافة العرض بنجاح اذهب الى السلة لتأكيد الطلب');
         return redirect('/food_offers');
 
     }
@@ -54,6 +73,34 @@ class HomeController extends Controller
     {
         $userId = Auth::user()->id;
         $cart = Cart::session($userId)->getContent();
-        return dd($cart);
+        // return dd($cart);
+        return view('Home.cart',compact('cart'));
+    }
+
+    public function decrease($id)
+    {
+        $userId = Auth::user()->id;
+        Cart::session($userId)->update($id, array(
+            'quantity' => -1,
+          ));
+          return redirect('/view_cart');
+    }
+
+    public function increase($id)
+    {
+        $userId = Auth::user()->id;
+        Cart::session($userId)->update($id, array(
+            'quantity' => +1,
+          ));
+          return redirect('/view_cart');
+    }
+
+    public function delete_item_from_cart($id)
+    {
+        $userId = Auth::user()->id;
+        Cart::session($userId)->remove($id);
+
+        toastr()->success('تم إزالة العرض بنجاح من السلة');
+        return redirect('/view_cart');
     }
 }
