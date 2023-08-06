@@ -104,12 +104,7 @@
                     </div>
                 </div>
 
-                <div class="card mb-4 mb-lg-0">
-                    <div class="card-body">
-                    <p><strong>بيانات التوصيل:</strong></p>
 
-                    </div>
-                </div>
                 </div>
                 <div class="col-md-4">
                 <div class="card mb-4">
@@ -133,13 +128,23 @@
                             <strong>إجمالي المبلغ:</strong>
 
                         </div>
-                        <span><strong>$53.98</strong></span>
+                        <span><strong>{{$total}} ريال</strong></span>
                         </li>
                     </ul>
 
-                    <button type="button" class="btn btn-primary btn-lg btn-block">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
                         تأكيد الطلب
                     </button>
+                    </div>
+                </div>
+                <div class="card mb-4 mb-lg-0">
+                    <div class="card-body">
+                    <p><strong>بيانات التوصيل:</strong></p>
+                    <div class="form-outline">
+                        <input type="text" class="form-control" placeholder=" (اختياري) اسم المستخدم"/><br>
+                        <input type="tel" class="form-control" placeholder="رقم الهاتف"/><br>
+                        <input type="text" class="form-control" placeholder="عنوان التوصيل"/><br>
+                    </div>
                     </div>
                 </div>
                 </div>

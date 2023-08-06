@@ -73,8 +73,10 @@ class HomeController extends Controller
     {
         $userId = Auth::user()->id;
         $cart = Cart::session($userId)->getContent();
+        $losing = 0.15*Cart::session($userId)->getTotal();
+        $total = Cart::session($userId)->getTotal()+$losing;
         // return dd($cart);
-        return view('Home.cart',compact('cart'));
+        return view('Home.cart',compact('cart','total'));
     }
 
     public function decrease($id)
