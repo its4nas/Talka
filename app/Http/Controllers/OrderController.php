@@ -3,16 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use App\Models\User;
+use Cart;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
     public function __construct()
     {
         $this->middleware('permission:access-orders', ['only' => ['index', 'show']]);
-        // $this->middleware('permission:create-orders', ['only' => ['create', 'store']]);
-        // $this->middleware('permission:update-orders', ['only' => ['edit', 'store']]);
+        $this->middleware('permission:create-orders', ['only' => ['create', 'store']]);
+        $this->middleware('permission:update-orders', ['only' => ['edit', 'store']]);
         $this->middleware('permission:delete-orders', ['only' => ['destroy']]);
     }
 
@@ -29,7 +33,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('Order.add_order');
+        // return view('Order.add_order');
     }
 
     /**
@@ -37,7 +41,13 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        //
+        Order::create([
+            "user_id"=>Auth::user()->id,
+            "location"=>Cart::session($userId)->getContent(),
+
+        ]);
+
+        return dd();
     }
 
     /**

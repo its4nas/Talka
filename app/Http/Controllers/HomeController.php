@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreOfferInCartRequest;
+use App\Http\Requests\StoreOrderRequest;
+use App\Http\Requests\UpdateOrderRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Offer;
+use App\Models\Order;
 use App\Models\food_type;
 use Cart;
 
@@ -104,5 +107,16 @@ class HomeController extends Controller
 
         toastr()->success('تم إزالة العرض بنجاح من السلة');
         return redirect('/view_cart');
+    }
+
+    public function add_order(toreOrderRequest $request,Order $order)
+    {
+        Order::create([
+            "user_id"=>Auth::user()->id,
+            "location"=>Cart::session($userId)->getContent(),
+
+        ]);
+
+        return 'good luck';
     }
 }

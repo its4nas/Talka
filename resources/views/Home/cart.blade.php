@@ -28,7 +28,7 @@
 </head>
 
 <body class="rtl">
-    <form action="">
+    <form method="post" action="{{route('add_order',$cart)}}">
         <section class="h-100 gradient-custom">
             <div class="container py-5">
             <div class="row d-flex justify-content-center my-4">
@@ -140,11 +140,11 @@
                 <div class="card mb-4 mb-lg-0">
                     <div class="card-body">
                     <p><strong>بيانات التوصيل:</strong></p>
-                    <div class="form-outline">
+                    {{-- <div class="form-outline">
                         <input type="text" class="form-control" placeholder=" (اختياري) اسم المستخدم"/><br>
                         <input type="tel" class="form-control" placeholder="رقم الهاتف"/><br>
                         <input type="text" class="form-control" placeholder="عنوان التوصيل"/><br>
-                    </div>
+                    </div> --}}
                     </div>
                 </div>
                 </div>
