@@ -41,13 +41,13 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        Order::create([
-            "user_id"=>Auth::user()->id,
-            "location"=>Cart::session($userId)->getContent(),
+        // Order::create([
+        //     "user_id"=>Auth::user()->id,
+        //     "location"=>Cart::session($userId)->getContent(),
 
-        ]);
+        // ]);
 
-        return dd();
+        // return dd();
     }
 
     /**

@@ -28,7 +28,8 @@
 </head>
 
 <body class="rtl">
-    <form method="post" action="{{route('add_order',$cart)}}">
+    {{-- {{route('add_order',$cart)}} --}}
+    <form method="post" action="">
         <section class="h-100 gradient-custom">
             <div class="container py-5">
             <div class="row d-flex justify-content-center my-4">

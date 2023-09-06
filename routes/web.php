@@ -52,7 +52,7 @@ Route::get('view_cart', [App\Http\Controllers\HomeController::class, 'view_cart'
 Route::get('decrease/{id}',[App\Http\Controllers\HomeController::class, 'decrease'])->name('decrease');
 Route::get('increase/{id}',[App\Http\Controllers\HomeController::class, 'increase'])->name('increase');
 Route::get('delete_item_from_cart/{id}',[App\Http\Controllers\HomeController::class, 'delete_item_from_cart'])->name('delete_item_from_cart');
-Route::put('add_order/{order}',[App\Http\Controllers\HomeController::class, 'add_order'])->name('add_order');
+// Route::put('add_order/{order}',[App\Http\Controllers\HomeController::class, 'add_order'])->name('add_order');
 
 
 Route::middleware('auth')->group(function () {

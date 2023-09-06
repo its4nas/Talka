@@ -109,14 +109,14 @@ class HomeController extends Controller
         return redirect('/view_cart');
     }
 
-    public function add_order(toreOrderRequest $request,Order $order)
-    {
-        Order::create([
-            "user_id"=>Auth::user()->id,
-            "location"=>Cart::session($userId)->getContent(),
+    // public function add_order(toreOrderRequest $request,Order $order)
+    // {
+    //     Order::create([
+    //         "user_id"=>Auth::user()->id,
+    //         "location"=>Cart::session($userId)->getContent(),
 
-        ]);
+    //     ]);
 
-        return 'good luck';
-    }
+    //     return 'good luck';
+    // }
 }
