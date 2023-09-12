@@ -106,7 +106,7 @@
           <div class="col-xl-2 col-md-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-bicycle"></i></div>
-              <h4><a href="">توصيل طلبات</a></h4>
+              <h4><a href="{{route('food_offer')}}">توصيل طلبات</a></h4>
               <p>جاوع ومحتاج حد يوصلك الأكل الى بيتك
                 او مريض ومحتاج حد يوصلك الدواء ،
                 احنا نوصلك الي تشتيه.

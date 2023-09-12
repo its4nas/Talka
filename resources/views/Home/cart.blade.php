@@ -29,7 +29,9 @@
 
 <body class="rtl">
     {{-- {{route('add_order',$cart)}} --}}
-    <form method="post" action="">
+    <form method="POST" action="{{route('add_order',5)}}">
+        @csrf
+        @method('POST')
         <section class="h-100 gradient-custom">
             <div class="container py-5">
             <div class="row d-flex justify-content-center my-4">
@@ -57,6 +59,7 @@
 
                         <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
                         <!-- Data -->
+                        <h3>{{$item->id}}</h3>
                         <h3>{{$item->name}}</h3>
                         <p>{{$item->attributes->restaurant_name}}</p>
                         <p>{{$item->attributes->food_type}}</p>
