@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- test comment for branch -->
+<!-- test comment for branch
+comment for conflict
+-->
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
